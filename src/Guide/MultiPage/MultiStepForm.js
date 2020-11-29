@@ -9,16 +9,13 @@ import { useForm, useStep } from "react-hooks-helper";
 import { Container, Col, Row, Carousel, Card, Form, Button } from 'react-bootstrap'
 
 import Basic from './Basic.js'
-import Overview from './Overview.js'
 import Detail from './Detail.js'
-import Submit from './Submit.js'
+
 
 
   const steps = [
     { id: "basic" },
-    { id: "detail" },
-    { id: "overview" },
-    { id: "submit" }
+    { id: "detail" }
   ];
 
   const defaultData = {
@@ -33,7 +30,7 @@ import Submit from './Submit.js'
     phone: "+61 4252 454 332"
   };
 
-  const MultiStepForm = ({ images }) => {
+  const MultiStepForm = () => {
     const [formData, setForm] = useForm(defaultData);
     const { step, navigation } = useStep({ initialStep: 0, steps });
     const { id } = step;
@@ -45,13 +42,11 @@ import Submit from './Submit.js'
         return <Basic {...props} />;
       case "detail":
         return <Detail {...props} />;
-      case "overview":
-        return <Overview {...props} />;
-      case "submit":
-        return <Submit {...props} />;
       default:
         return null;
     }
+
+
   };
 
   
