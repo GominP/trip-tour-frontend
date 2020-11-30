@@ -3,10 +3,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarGuide from '../NavBar/NavBarGuide.js'
 import React, { useEffect, useState } from "react";
+
 import Select from 'react-select'
 import { useSelect } from 'react-select-search';
 import { Container, Col, Row, Carousel, CardColumns, CardGroup, Card, Form, Button } from 'react-bootstrap'
 import { render } from '@testing-library/react';
+
+
 
 
 function SelectTrip() {
