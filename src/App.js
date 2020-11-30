@@ -9,6 +9,7 @@ import ChooseJob from './Guide/ChooseJob.js'
 
 import MultiStepForm from './Guide/MultiPage/MultiStepForm.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Detail from './Guide/MultiPage/Detail.js';
 
 class App extends React.Component {
   render() {
