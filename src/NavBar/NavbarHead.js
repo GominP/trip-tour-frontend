@@ -13,7 +13,7 @@ function NavbarHead() {
             <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/CreateTrip">Test</Nav.Link>
+                <Nav.Link href="/MultiStepForm">Test</Nav.Link>
             <   Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
         </Navbar>

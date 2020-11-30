@@ -1,12 +1,19 @@
 import React from "react";
 import NavBarGuide from '../../NavBar/NavBarGuide.js'
 
-import { Container, Col, Row, Carousel, Card, Form, Button, Nav } from 'react-bootstrap'
+
+import { Container, Col, Row, Carousel, Card, Form, Button, Nav, Image  } from 'react-bootstrap'
 
 const Detail = ({ setForm, formData, navigation }) => {
     const { firstName, lastName, nickName } = formData;
 
     const { previous, next } = navigation;
+
+    const [file, setFile] = React.useState(null)
+
+    const fileHandler = (e) => {
+        setFile(e.target.files[0])
+    }
 
     return (
         <div>
@@ -22,23 +29,27 @@ const Detail = ({ setForm, formData, navigation }) => {
                             </Row>
                             <Row style={{ marginTop: 50 }}>
                                 <Nav.Link >
-                                     Photo Gallery
+                                    Photo Gallery
                                  </Nav.Link>
                             </Row>
                         </Col>
                         <Col sm={9}>
                             <Form>
-                                <Form.Group>
+                                {/* <Form.Group>
                                     <Form.Label>Test</Form.Label>
                                     <Form.Control type="text" name="firstName" value={firstName} onChange={setForm} />
                                 </Form.Group>
                                 <Form.Group >
                                     <Form.Label>Test</Form.Label>
                                     <Form.Control type="text" name="lastName" value={lastName} onChange={setForm} />
-                                </Form.Group>
+                                </Form.Group> */}
+                                <div>
+                                    <Image  src={file ? URL.createObjectURL(file) : null} alt={file ? file.name : null} />
+                                    <Form.File type="file" onChange={fileHandler} />
+                                </div>
                             </Form>
                             <div>
-                            <Button onClick={ previous}> Previous </Button>
+                                <Button onClick={previous}> Previous </Button>
 
                                 <Button > Submit </Button>
                             </div>
