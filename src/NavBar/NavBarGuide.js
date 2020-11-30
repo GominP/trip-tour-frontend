@@ -12,8 +12,9 @@ function NavBarGuide() {
             <Navbar.Brand href="/" >Trip & Tour</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/CreateTrip">Create Trip</Nav.Link>
-                <Nav.Link href="/MultiStepForm">Work Schedule</Nav.Link>
+                <Nav.Link href="/MultiStepForm">Create Trip</Nav.Link>
+                <Nav.Link href="/SelectTrip">Select Trip</Nav.Link>
+                <Nav.Link href="/">Work Schedule</Nav.Link>
                 <Nav.Link href="#pricing">Work History</Nav.Link>
             </Nav>
         </Navbar>
