@@ -20,7 +20,9 @@ function ChooseJob() {
        <Container>
         <Row className="justify-content-md-center">
             <div style={{ marginTop: 80}}>
-            ChooseJob
+                <Col>
+                </Col>
+            
          
 
             </div>
