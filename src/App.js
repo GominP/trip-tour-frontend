@@ -19,7 +19,6 @@ import DetailTrip from './MainPage/DetailTrip.js';
 const App = () => {
   const [token] = useState(localStorage.getItem('token'))
 
-<<<<<<< HEAD
   const url = 'http://192.168.102.22:3030/api'
 
   const [role, setRole] = useState('C')
@@ -39,11 +38,6 @@ const App = () => {
     <div>
       {role === 'A' ? <NavBarAdmin/> : role === 'G' ? <NavBarGuide/> : <NavBarHead isLogin={isLogin}/>}
       
-=======
-class App extends React.Component {
-  render() {
-    return (
->>>>>>> f
       <Router>
       <Switch>
         <>

@@ -116,11 +116,8 @@ const CreateTrip = ({ }) => {
     //     moment(timeStart).format("LT") + 'and' + 
     //     moment(timeEnd).format("LT"));
     // } 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> f
 
     //Post Method
     
