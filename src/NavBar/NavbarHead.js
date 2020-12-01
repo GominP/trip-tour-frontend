@@ -151,7 +151,7 @@ function NavbarHead(props) {
             <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/MultiStepForm">Test</Nav.Link>
+                <Nav.Link href="/CreateTrip">Test</Nav.Link>
                 <Nav.Link href="/Profile">Customer</Nav.Link>
             </Nav>
             <Nav className="justify-content-end">

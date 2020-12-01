@@ -72,7 +72,6 @@ function ChooseJob() {
                         </img>
                         </Carousel.Item>
                       )
-
                     })
                   }                
               </Carousel>

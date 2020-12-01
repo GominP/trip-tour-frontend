@@ -100,13 +100,13 @@ const CreateTrip = ({ }) => {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-  
-      setValidated(true);
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        setValidated(true);
     };
 
 
@@ -248,10 +248,14 @@ const CreateTrip = ({ }) => {
                             <Tab.Content>
                                 <Tab.Pane eventKey={stateTab}>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <Form>
 =======
                                     <Form  noValidate validated={validated} onSubmit={handleSubmit}>
 >>>>>>> fix merge
+=======
+                                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+>>>>>>> m
                                         <Form.Row>
 
                                             <Form.Label column lg={4}>
@@ -265,8 +269,12 @@ const CreateTrip = ({ }) => {
                                         Name Trip
                                             </Form.Label>
                                             <Col>
+<<<<<<< HEAD
                                                 <Form.Control className="w-50" type="text" placeholder="Normal text" required/>
 >>>>>>> fix merge
+=======
+                                                <Form.Control className="w-50" type="text" placeholder="Normal text" required />
+>>>>>>> m
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -319,8 +327,12 @@ const CreateTrip = ({ }) => {
                                         Detail
                                     </Form.Label>
                                             <Col>
+<<<<<<< HEAD
                                                 <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text" required/>
 >>>>>>> fix merge
+=======
+                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text" required />
+>>>>>>> m
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -336,8 +348,12 @@ const CreateTrip = ({ }) => {
                                         Main activities
                                     </Form.Label>
                                             <Col>
+<<<<<<< HEAD
                                                 <Form.Control className="w-50" as="select"  required>
 >>>>>>> fix merge
+=======
+                                                <Form.Control className="w-50" as="select" required>
+>>>>>>> m
                                                     {activities.map(act => {
                                                         return <option>{act.label} </option>
                                                     })}
@@ -349,6 +365,7 @@ const CreateTrip = ({ }) => {
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faDollarSign} style={{ marginRight: 10 }} />
                                         Price
+<<<<<<< HEAD
 <<<<<<< HEAD
                                             </Form.Label>
                                             <Col>
@@ -363,11 +380,19 @@ const CreateTrip = ({ }) => {
 
                                     </Col>
 >>>>>>> fix merge
+=======
+                                            </Form.Label>
+                                            <Col>
+
+                                                <Form.Control className="w-50" type="number" placeholder="1000" required />
+                                            </Col>
+>>>>>>> m
                                         </Form.Row>
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
                                                 Meet up Time
+<<<<<<< HEAD
 <<<<<<< HEAD
                                             </Form.Label>
                                             <Col>
@@ -377,6 +402,11 @@ const CreateTrip = ({ }) => {
                                             <Col>
                                                 <TimePicker defaultValue={moment('00:00', format)} format={format} />
 >>>>>>> fix merge
+=======
+                                            </Form.Label>
+                                            <Col>
+                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="BTS" required />
+>>>>>>> m
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -409,6 +439,7 @@ const CreateTrip = ({ }) => {
                                 </Tab.Pane>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <Tab.Pane eventKey={stateTab2}>
                                     
                                     <Form>
@@ -417,28 +448,40 @@ const CreateTrip = ({ }) => {
                                                 <p className="ant-upload-drag-icon"><InboxOutlined /></p>
 =======
 
+=======
+>>>>>>> m
                                 <Tab.Pane eventKey={stateTab2}>
+                                    
                                     <Form>
                                         <div>
                                             <Dragger {...props}>
+<<<<<<< HEAD
                                                 <p className="ant-upload-drag-icon">
                                                     <InboxOutlined />
                                                 </p>
 >>>>>>> fix merge
+=======
+                                                <p className="ant-upload-drag-icon"><InboxOutlined /></p>
+>>>>>>> m
                                                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                                                 <p className="ant-upload-hint">
                                                     Support for a single or bulk upload. Strictly prohibit from uploading company data or other
                                                     band files
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 </p>
 =======
                                         </p>
 >>>>>>> fix merge
+=======
+                                                </p>
+>>>>>>> m
                                             </Dragger>
                                             <Image src={file ? URL.createObjectURL(file) : null} alt={file ? file.name : null} />
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                     <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
 
@@ -448,16 +491,22 @@ const CreateTrip = ({ }) => {
                           
 =======
                                     <Button style={{  marginLeft: '80%'}}>Submit</Button>
+=======
+                                    <Button style={{ marginLeft: '80%' }}>Submit</Button>
+>>>>>>> m
 
 
                                 </Tab.Pane>
                             </Tab.Content>
+<<<<<<< HEAD
                             <Container >
 
                                 
                             </Container>
 
 >>>>>>> fix merge
+=======
+>>>>>>> m
                         </Col>
                     </Row>
                 </Tab.Container>
