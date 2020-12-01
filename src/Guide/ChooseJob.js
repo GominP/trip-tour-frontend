@@ -1,5 +1,3 @@
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarGuide from '../NavBar/NavBarGuide.js';
 import React, { useEffect, useState } from "react";
@@ -44,22 +42,21 @@ function ChooseJob() {
             <Col sm={8}>
               <Row>
               <Card style={{ width: '40rem'}}>
-              <Carousel activeIndex={index} onSelect={handleSelect}>
-                
-                  {
-                    cardImg.map(i => {
-                      return (
-                        <Carousel.Item>
-                        <img
-                          className="d-block w-100"
-                          src={i.img}>
-                        </img>
-                        </Carousel.Item>
-                      )
-                    })
-                  }                
-              </Carousel>
-              <Card.Body>
+                <Carousel activeIndex={index} onSelect={handleSelect}>
+                    {
+                      cardImg.map(i => {
+                        return (
+                          <Carousel.Item>
+                          <img
+                            className="d-block w-100"
+                            src={i.img}>
+                          </img>
+                          </Carousel.Item>
+                        )
+                      })
+                    }                
+                </Carousel>
+                <Card.Body>
 
                   <Card.Text>
                   <dl class="row">
@@ -90,7 +87,7 @@ function ChooseJob() {
                   </dl>
                   </Card.Text>
                 </Card.Body>
-              </Card> 
+            </Card> 
                 
                   
                                 

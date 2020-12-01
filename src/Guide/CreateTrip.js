@@ -16,26 +16,19 @@ const CreateTrip = ({ }) => {
     const url = "http://192.168.102.22:3030/api"
     const axios = require('axios');
 
-
+    // TabState
     const [stateTab, setStatTab] = useState("first");
     const [stateTab2, setStatTab2] = useState("second");
-
     const handleNextTab = () => {
         setStatTab("second");
         setStatTab2("first");
     }
-
     const handlePreviousTab = () => {
         setStatTab("first");
         setStatTab2("second");
     }
 
     //Province
-    // const [stateOption, setStateOption] = useState('');
-
-    // const options = [
-    //     { value: '', label: 'Chocolate' },
-    //   ]
     const [provinceOption, setProvinceOption] = useState([]);
 
     const activities = [
@@ -76,13 +69,18 @@ const CreateTrip = ({ }) => {
             }
         },
     };
+
+
+
     const [data, setData] = useState({
-        nameTrip: '',
-        province: '',
+        name: '',
+        province: 'Bangkok',
+        address: '',
         detail: '',
-        activity: '',
+        tag: 'Art & Craft Workshops',
         price: '',
-        meetUp: '',
+        meeting_point: '',
+
 
     })
     const createTrip = (e,key) => {
@@ -107,34 +105,58 @@ const CreateTrip = ({ }) => {
     }
 
 
-    const showData = () => {
-        console.log('test on change: ' + data.nameTrip + 'and'+moment(timeStart).format("LT")+ 'and' + moment(timeEnd).format("LT"));
-    } 
+    // const showData = () => {
+    //     console.log('test on change: ' + data.nameTrip + 
+    //     data.province + 
+    //     data.address + 'and' +
+    //     data.detail + 'and' +
+    //     data.activity + 'and' +
+    //     data.price + 'and' +
+    //     data.meetUp + 'and' +
+    //     moment(timeStart).format("LT") + 'and' + 
+    //     moment(timeEnd).format("LT"));
+    // } 
 
     //Post Method
+    
+    
+
     const postCreateTrip = () => {
-        axios.post()
+
+        console.log(data);
+
+        axios({
+            method: 'get',
+            url: url + '/province/name/' + data.province
+        }).then((res) => {
+            const provinceId = res.data[0]._id
+            setData({
+                ...data,
+                start_time: timeStart,
+                end_time: timeEnd,
+                province_id: provinceId
+            })
+            console.log(data);
+
+            axios.post(url + '/trip', data)
+            .then( res => {
+                console.log(res);
+                // window.location.href= "/"
+            })
+     
+        })
+     
         
     }
 
     useEffect( () => {
-        // console.log("time: " + timeStart);
-        // console.log("timest: " + moment(timeStart).format("LT"));
-        // console.log("time: " + timeEnd);
-        // console.log("timest: " + moment(timeEnd).format("LT"));
-        // console.log(data.province + "จังหวัด")
 
+        //Get Province
         axios.get(url + '/province').then(res => {
                 console.log(res.data);
                 const provinces = res.data.map((d)=> d.name)
                 setProvinceOption(provinces)
-                // console.log(provinces)
         })
-
-
-
-        
-      
 
 
         }, [])
@@ -168,19 +190,17 @@ const CreateTrip = ({ }) => {
                                                      Name Trip
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" type="text" placeholder="Normal text" value={data.nameTrip} onChange={(e) => createTrip(e,'nameTrip')} required  />
+                                                <Form.Control className="w-50" type="text" placeholder="Normal text" value={data.name} onChange={(e) => createTrip(e,'name')} required  />
                                             </Col>
                                         </Form.Row>
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: 10 }} />
-
-                                        Province
-
-                                    </Form.Label>
+                                                Province
+                                            </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="select" required  >                                                    
+                                                <Form.Control className="w-50" as="select" value={data.province} onChange={(e) => createTrip(e,'province')} required  >                                                    
                                                     {provinceOption.map((act) => {
                                                         return <option>{act} </option>
                                                     })}
@@ -191,9 +211,19 @@ const CreateTrip = ({ }) => {
                                         <Form.Row>
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: 10 }} />
-
-                                        Detail
-                                    </Form.Label>
+                                                    Address
+                                                </Form.Label>
+                                            <Col>
+                                                <Form.Control className="w-50"  type="text" placeholder="Address"  value={data.address} onChange={(e) => createTrip(e,'address')}required />
+                                            </Col>
+                                        </Form.Row>
+                                        
+                                        <br />
+                                        <Form.Row>
+                                            <Form.Label column lg={4}>
+                                                <FontAwesomeIcon icon={faInfoCircle} style={{ marginRight: 10 }} />
+                                                    Detail
+                                                </Form.Label>
                                             <Col>
                                                 <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text"  value={data.detail} onChange={(e) => createTrip(e,'detail')}required />
                                             </Col>
@@ -202,10 +232,10 @@ const CreateTrip = ({ }) => {
                                         <Form.Row>
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faHiking} style={{ marginRight: 10 }} />
-                                        Main activities
-                                    </Form.Label>
+                                                    Main activities
+                                                </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="select" value={data.activity} onChange={(e) => createTrip(e,'activity')} required>
+                                                <Form.Control className="w-50" as="select" onChange={(e) => createTrip(e,'tag')} required>
                                                     {activities.map(act => {
                                                         return <option>{act.label} </option>
                                                     })}
@@ -229,7 +259,7 @@ const CreateTrip = ({ }) => {
                                                 Meet up Time
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meetUp} onChange={(e) => createTrip(e,'meetUp')} required />
+                                                <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meeting_point} onChange={(e) => createTrip(e,'meeting_point')} required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -269,16 +299,17 @@ const CreateTrip = ({ }) => {
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{ marginLeft: '80%' }}>Submit</Button>
-
+                                    <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
 
                                 </Tab.Pane>
+
                             </Tab.Content>
+                          
                         </Col>
                     </Row>
                 </Tab.Container>
             </Container>
-            <Button onClick={() => showData()} >Show Data</Button>
+            {/* <Button onClick={() => showData()} >Show Data</Button> */}
         </div>
 
     );

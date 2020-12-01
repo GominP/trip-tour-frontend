@@ -14,7 +14,6 @@ import DetailTrip from './MainPage/DetailTrip.js';
 
 import Test from './User/test.js'
 
-
 class App extends React.Component {
   render() {
     return (
