@@ -2,39 +2,40 @@
 import Home from './Home.js';
 
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import CreateTrip from './Guide/CreateTrip.js'
 import SelectTrip from './Guide/SelectTrip.js'
 import ChooseJob from './Guide/ChooseJob.js'
 import WorkSchedule from './Guide/WorkSchedule.js'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from './Customer/Profile.js';
-import EditProfile from './Customer/EditProfile.js'
+import EditProfile from './Customer/editProfile.js'
 import NavBarHead from './NavBar/NavbarHead.js'
+import NavBarGuide from './NavBar/NavBarGuide.js'
+import NavBarAdmin from './NavBar/NavBarAdmin.js'
 
-<<<<<<< HEAD
-class App extends React.Component {
-  componentDidMount() {
-    const token = localStorage.getItem('token')
-    if (token === null) {
-
-      
-    }
-    
-  }
-  render() {
-    return (
-=======
 const App = () => {
+  const [token] = useState(localStorage.getItem('token'))
+
+  const url = 'http://192.168.102.22:3030/api'
+
+  const [role, setRole] = useState('C')
+  const [isLogin, setLogin] = useState(false)
+
   useEffect(() => {
-    const token = 'token'
-    localStorage.getItem('token')
-    console.log(localStorage.getItem('token'))
+    if(token) {
+      axios.get(url + '/user/token/' + token).then((res) => {
+        console.log(res.data);
+        setRole(res.data.role)
+        setLogin(true)
+      })
+    }
   })
 
   return (
     <div>
-      <NavBarHead></NavBarHead>
->>>>>>> edit navbar structure
+      {role === 'A' ? <NavBarAdmin/> : role === 'G' ? <NavBarGuide/> : <NavBarHead isLogin={isLogin}/>}
+      
       <Router>
       <Switch>
         <>

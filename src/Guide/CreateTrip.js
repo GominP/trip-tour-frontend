@@ -12,9 +12,8 @@ import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Container, Col, Row, Form, Button, Nav, Tab, Image, Carousel } from 'react-bootstrap'
 
-const CreateTrip = ({ }) => {
+const CreateTrip = () => {
     const url = "http://192.168.102.22:3030/api"
-    const axios = require('axios');
 
     // TabState
     const [stateTab, setStatTab] = useState("first");
