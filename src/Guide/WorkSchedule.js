@@ -19,10 +19,6 @@ function WorkSchedule() {
 
   return (
     <div>
-<<<<<<< HEAD
-=======
-      <NavBarGuide />
->>>>>>> fix merge
       <Container style={{ marginTop: 80 }}>
         <Row className="justify-content-md-center">
           <Col sm={4}>
