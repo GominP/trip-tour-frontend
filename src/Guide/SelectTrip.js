@@ -23,7 +23,6 @@ function SelectTrip() {
 
     return (
         <div>
-            <NavBarGuide />
             <Container>
                 <Row className="justify-content-md-center">
                     <CardGroup style={{ marginTop: 80 }}>

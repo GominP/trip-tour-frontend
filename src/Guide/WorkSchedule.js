@@ -19,7 +19,6 @@ function WorkSchedule() {
 
   return (
     <div>
-      <NavBarGuide />
       <Container style={{ marginTop: 80 }}>
         <Row className="justify-content-md-center">
           <Col sm={4}>

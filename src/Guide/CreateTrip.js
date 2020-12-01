@@ -165,7 +165,6 @@ const CreateTrip = ({ }) => {
     return (
 
         <div>
-            <NavBarGuide />
             <Container style={{ marginTop: 80 }}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row>

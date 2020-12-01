@@ -146,6 +146,7 @@ function NavbarHead(props) {
     }
 
     return (
+<<<<<<< HEAD
         <div className="App">
             <Navbar bg="rgba(0,0,0,0.4)" variant={props.variant ? props.variant : "dark"} fixed="top" >
                 <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
@@ -159,6 +160,20 @@ function NavbarHead(props) {
                     <Nav.Link onClick={handleShow}>Register</Nav.Link>
                 </Nav>
             </Navbar>
+=======
+    <div className="App">
+        <Navbar bg="rgba(0,0,0,0.4)" variant={props.variant ? props.variant : "dark"} fixed="top" bg="dark">
+            <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/CreateTrip">Test to Guide</Nav.Link>
+                <Nav.Link href="/Profile">Customer</Nav.Link>
+            </Nav>
+            <Nav className="justify-content-end">
+                <Nav.Link href="#login">Login</Nav.Link>
+                <Nav.Link onClick={handleShow}>Register</Nav.Link>  
+            </Nav>
+        </Navbar>
+>>>>>>> edit navbar structure
 
             <Modal show={showLogin} onHide={handleLoginClose}>
                 <Modal.Header closeButton>

@@ -38,7 +38,6 @@ function ChooseJob() {
 
   return (
     <div>
-      <NavBarGuide />
       <Container style={{ marginTop: 80}}>
         <Row className=""  >
             <Col sm={8}>
