@@ -24,10 +24,7 @@
     "react-hooks-helper": "^1.6.0",
     "react-images-upload": "^1.2.8",
     "react-phone-number-input": "^3.1.6",
-<<<<<<< HEAD
     "react-rounded-image": "^2.0.11",
-=======
->>>>>>> rebase
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-select": "^3.1.1",
