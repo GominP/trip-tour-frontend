@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
 import { Container, Row, Col, Button, Nav, Navbar, Modal, Form, Tabs, Tab } from 'react-bootstrap'
-=======
-import { Button,Nav,Navbar  } from 'react-bootstrap'
->>>>>>> a2dfdbe7707b003f8ef25abb01cf169cf97882cf
 
 
 function NavbarHead(props) {
