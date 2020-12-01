@@ -1,11 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
-import { useSelect } from 'react-select-search';
 import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, useAccordionToggle } from 'react-bootstrap'
 import NavbarHead from '../NavBar/NavbarHead.js';
 import Nav from 'react-bootstrap/Nav'
-import Image from 'react-bootstrap/Image'
 import slide1 from '../img/h1.jpg';
 import ReactRoundedImage from "react-rounded-image";
 import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'

@@ -15,6 +15,14 @@ import DetailTrip from './MainPage/DetailTrip.js';
 import Test from './User/test.js'
 
 class App extends React.Component {
+  componentDidMount() {
+    const token = localStorage.getItem('token')
+    if (token === null) {
+
+      
+    }
+    
+  }
   render() {
     return (
       <Router>
@@ -24,6 +32,7 @@ class App extends React.Component {
             <Route exact path='/CreateTrip' component={CreateTrip} />
             <Route exact path='/SelectTrip' component={ SelectTrip } />
             <Route exact path='/ChooseJob/:id' component={ ChooseJob } />
+            <Route exact path='/WorkSchedule' component={ WorkSchedule } />
             <Route exact path='/Profile' component={ Profile } />
             <Route exact path='/EditProfile' component={ EditProfile } />
             <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
