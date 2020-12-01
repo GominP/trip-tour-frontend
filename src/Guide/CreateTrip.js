@@ -1,22 +1,22 @@
 import ReactDOM from 'react-dom'
 import NavBarGuide from '../NavBar/NavBarGuide.js'
 import Select from 'react-select'
-import { TimePicker } from 'antd';
-import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign, faHiking, faHome, faInfo, faInfoCircle, faMapMarked, faMapMarkedAlt, faMapMarkerAlt, faSignature } from "@fortawesome/free-solid-svg-icons";
-
-
 import moment from 'moment';
+import axios from "axios";
 import 'antd/dist/antd.css';
+import { TimePicker } from 'antd';
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faHiking, faInfoCircle, faMapMarkerAlt, faSignature } from "@fortawesome/free-solid-svg-icons";
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Container, Col, Row, Form, Button, Nav, Tab, Image, Carousel } from 'react-bootstrap'
-import { faHandshake } from '@fortawesome/free-regular-svg-icons';
 
 const CreateTrip = ({ }) => {
+    const url = "http://192.168.102.22:3030/api"
+    const axios = require('axios');
 
-    const format = 'HH:mm';
+
     const [stateTab, setStatTab] = useState("first");
     const [stateTab2, setStatTab2] = useState("second");
 
@@ -30,13 +30,13 @@ const CreateTrip = ({ }) => {
         setStatTab2("second");
     }
 
+    //Province
+    // const [stateOption, setStateOption] = useState('');
 
-
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
+    // const options = [
+    //     { value: '', label: 'Chocolate' },
+    //   ]
+    const [provinceOption, setProvinceOption] = useState([]);
 
     const activities = [
         { value: 'Art & Craft Workshops', label: 'Art & Craft Workshops' },
@@ -53,27 +53,12 @@ const CreateTrip = ({ }) => {
 
     ]
 
+    //Upload Img
     const { Dragger } = Upload;
-
     const [file, setFile] = React.useState(null)
-
     const fileHandler = (e) => {
         setFile(e.target.files[0])
     }
-
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-
-        setValidated(true);
-    };
-
-
     const props = {
         name: 'file',
         multiple: true,
@@ -91,6 +76,69 @@ const CreateTrip = ({ }) => {
             }
         },
     };
+    const [data, setData] = useState({
+        nameTrip: '',
+        province: '',
+        detail: '',
+        activity: '',
+        price: '',
+        meetUp: '',
+
+    })
+    const createTrip = (e,key) => {
+        setData({
+            ...data,
+            [key]:e.target.value
+        
+        })
+    }
+
+
+
+    //Set Time
+    const [timeStart, setTimeStart] = useState("");
+    const [timeEnd, setTimeEnd] = useState("");
+
+    const timeStartChange = (time,timeString) => {
+        setTimeStart(time);
+      };
+    const timeEndChange = (time, timeString) => {
+        setTimeEnd(time);
+    }
+
+
+    const showData = () => {
+        console.log('test on change: ' + data.nameTrip + 'and'+moment(timeStart).format("LT")+ 'and' + moment(timeEnd).format("LT"));
+    } 
+
+    //Post Method
+    const postCreateTrip = () => {
+        axios.post()
+        
+    }
+
+    useEffect( () => {
+        // console.log("time: " + timeStart);
+        // console.log("timest: " + moment(timeStart).format("LT"));
+        // console.log("time: " + timeEnd);
+        // console.log("timest: " + moment(timeEnd).format("LT"));
+        // console.log(data.province + "จังหวัด")
+
+        axios.get(url + '/province').then(res => {
+                console.log(res.data);
+                const provinces = res.data.map((d)=> d.name)
+                setProvinceOption(provinces)
+                // console.log(provinces)
+        })
+
+
+
+        
+      
+
+
+        }, [])
+
 
     return (
 
@@ -112,15 +160,15 @@ const CreateTrip = ({ }) => {
                         <Col sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey={stateTab}>
-                                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                                    <Form>
                                         <Form.Row>
 
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faSignature} style={{ marginRight: 10 }} />
-                                        Name Trip
+                                                     Name Trip
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" type="text" placeholder="Normal text" required />
+                                                <Form.Control className="w-50" type="text" placeholder="Normal text" value={data.nameTrip} onChange={(e) => createTrip(e,'nameTrip')} required  />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -129,10 +177,14 @@ const CreateTrip = ({ }) => {
                                                 <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: 10 }} />
 
                                         Province
+
                                     </Form.Label>
                                             <Col>
-                                                <Select className="w-50" options={options} required />
-
+                                                <Form.Control className="w-50" as="select" required  >                                                    
+                                                    {provinceOption.map((act) => {
+                                                        return <option>{act} </option>
+                                                    })}
+                                                </Form.Control>
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -143,7 +195,7 @@ const CreateTrip = ({ }) => {
                                         Detail
                                     </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text" required />
+                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text"  value={data.detail} onChange={(e) => createTrip(e,'detail')}required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -153,7 +205,7 @@ const CreateTrip = ({ }) => {
                                         Main activities
                                     </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="select" required>
+                                                <Form.Control className="w-50" as="select" value={data.activity} onChange={(e) => createTrip(e,'activity')} required>
                                                     {activities.map(act => {
                                                         return <option>{act.label} </option>
                                                     })}
@@ -168,7 +220,7 @@ const CreateTrip = ({ }) => {
                                             </Form.Label>
                                             <Col>
 
-                                                <Form.Control className="w-50" type="number" placeholder="1000" required />
+                                                <Form.Control className="w-50" type="number" placeholder="1000" value={data.price} onChange={(e) => createTrip(e,'price')} required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -177,7 +229,7 @@ const CreateTrip = ({ }) => {
                                                 Meet up Time
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="BTS" required />
+                                                <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meetUp} onChange={(e) => createTrip(e,'meetUp')} required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -187,12 +239,12 @@ const CreateTrip = ({ }) => {
                                             </Form.Label>
                                             <Col>
                                                 <Form.Row>
-                                                    <TimePicker defaultValue={moment('00:00', format)} format={format} />
+                                                    <TimePicker  style={{ marginLeft: 5}} value={timeStart} onChange={timeStartChange} />
                                                     <Form.Label column>Time Start</Form.Label>
                                                 </Form.Row>
                                                 <br />
                                                 <Form.Row>
-                                                    <TimePicker defaultValue={moment('00:00', format)} format={format} />
+                                                    <TimePicker  style={{ marginLeft: 5}} value={timeEnd} onChange={timeEndChange} />
                                                     <Form.Label column>Time End</Form.Label>
                                                 </Form.Row>
                                             </Col>
@@ -226,6 +278,7 @@ const CreateTrip = ({ }) => {
                     </Row>
                 </Tab.Container>
             </Container>
+            <Button onClick={() => showData()} >Show Data</Button>
         </div>
 
     );
