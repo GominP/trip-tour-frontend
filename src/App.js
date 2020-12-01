@@ -13,7 +13,6 @@ import EditProfile from './Customer/editProfile.js'
 import NavBarHead from './NavBar/NavbarHead.js'
 import NavBarGuide from './NavBar/NavBarGuide.js'
 import NavBarAdmin from './NavBar/NavBarAdmin.js'
-import Detail from './Guide/MultiPage/Detail.js';
 import DetailTrip from './MainPage/DetailTrip.js';
 
 const App = () => {

@@ -120,9 +120,6 @@ const CreateTrip = ({ }) => {
 
 
     //Post Method
-    
-    
-
     const postCreateTrip = () => {
 
         console.log(data);
@@ -301,7 +298,7 @@ const CreateTrip = ({ }) => {
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{ marginLeft: '80%' }}    >Submit</Button>
+                                    <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
 
                                 </Tab.Pane>
 

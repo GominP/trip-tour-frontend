@@ -34,18 +34,25 @@ function EditProfile(){
 
         console.log(data);
 
-        // axios({
-        //     method: 'put',
-        //     url: url + '/user' + data.province
-        // }).then((res) => {
-        //     console.log(data);
-
-        //     axios.post(url + '/trip', data)
-        //     .then( res => {
-        //         console.log(res);
-        //         // window.location.href= "/"
-        //     })
+        // axios.put(url + '/trip', data)
+        // .then( res => {
+        //     console.log(res);
+        //     // window.location.href= "/"
+        // })
      
+        
+    }
+
+    const resetPassword = () => {
+
+        console.log(data);
+
+
+
+        // axios.put(url + '/trip', data)
+        // .then( res => {
+        //     console.log(res);
+        //     // window.location.href= "/"
         // })
      
         
