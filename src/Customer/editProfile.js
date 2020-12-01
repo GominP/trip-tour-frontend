@@ -58,6 +58,12 @@ function EditProfile(){
         
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> db20fbc5c31270f72b5a762ddd63860ad07797ff
     return (
         <div>
             <Container style={{marginTop:80}}>

@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
+
 
 import slide1 from '../img/h1.jpg';
 import slide2 from '../img/h2.jpg';
@@ -17,12 +19,12 @@ import { Container, Col, Row, Carousel, Card, Form, Button } from 'react-bootstr
 function ChooseJob() {
   const params = useParams();
 
-  const [index, setIndex] = useState(0);
 
+  //Carousel
+  const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
   const cardImg = [
     { img: slide1},
     { img: slide2},
@@ -30,7 +32,14 @@ function ChooseJob() {
 
 ];
 
+  //Date
+  const [valueDate, setValueDate] = useState(new Date());
   const disabledDates = [new Date(2020,10,29),new Date(2020,10,27),new Date(2020,10,24)]
+
+  const saveDate = () =>{
+    console.log(valueDate);
+  
+  }
 
 
 
@@ -89,11 +98,11 @@ function ChooseJob() {
               </Card>            
             </Row>
             </Col>
-
             <Col sm={4}>
                 <Row>
                 <Calendar
-                  selectRange={true}
+                  onChange={setValueDate}
+                  value={valueDate}                
                   tileDisabled={({ date }) => {
                     for (const disabledDate of disabledDates) {
                       if (
@@ -109,7 +118,7 @@ function ChooseJob() {
 
                 </Row>
                 <Row className="justify-content-center" style={{ marginTop: 40}}>
-                  <Button > Save Change</Button>
+                  <Button onClick={()=> saveDate()}> Save Change</Button>
 
                 </Row>
 

@@ -5,7 +5,7 @@ import NavBarGuide from '../NavBar/NavBarGuide.js'
 import React, { useEffect, useState } from "react";
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import { Container, Col, Row, Carousel, Card, Form, Button } from 'react-bootstrap'
+import { Container, Col, Row, Card, Table, Button } from 'react-bootstrap'
 
 
 function WorkSchedule() {
@@ -32,7 +32,38 @@ function WorkSchedule() {
             />
           </Col>
           <Col sm={8}>
+<<<<<<< HEAD
             
+=======
+            <Card body style={{ textAlign: 'center'}}>
+              <Card.Title >
+                Work Detail
+              </Card.Title>
+              <Table striped bordered hover responsive>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Trip Name</th>
+                    <th >Province</th>
+                    <th >Date</th>
+  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="10%">1</td>
+                    <td width="30%">Mark</td>
+                    <td >จังหวัด</td>
+                    <td >เวลา</td>
+
+              
+                  </tr>
+                </tbody>
+              </Table>
+
+            </Card>
+
+>>>>>>> db20fbc5c31270f72b5a762ddd63860ad07797ff
           </Col>
         </Row>
       </Container>
