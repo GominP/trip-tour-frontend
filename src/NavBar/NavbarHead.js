@@ -16,7 +16,7 @@ function NavbarHead() {
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/CreateTrip">Test</Nav.Link>
-            <   Nav.Link href="/test">Pricing</Nav.Link>
+            <   Nav.Link href="/">Pricing</Nav.Link>
             </Nav>
         </Navbar>
     </div>

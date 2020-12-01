@@ -64,13 +64,13 @@ const CreateTrip = ({ }) => {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-  
-      setValidated(true);
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        setValidated(true);
     };
 
 
@@ -112,7 +112,7 @@ const CreateTrip = ({ }) => {
                         <Col sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey={stateTab}>
-                                    <Form  noValidate validated={validated} onSubmit={handleSubmit}>
+                                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                         <Form.Row>
 
                                             <Form.Label column lg={4}>
@@ -120,7 +120,7 @@ const CreateTrip = ({ }) => {
                                         Name Trip
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" type="text" placeholder="Normal text" required/>
+                                                <Form.Control className="w-50" type="text" placeholder="Normal text" required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -143,7 +143,7 @@ const CreateTrip = ({ }) => {
                                         Detail
                                     </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text" required/>
+                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="Normal text" required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -153,7 +153,7 @@ const CreateTrip = ({ }) => {
                                         Main activities
                                     </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="select"  required>
+                                                <Form.Control className="w-50" as="select" required>
                                                     {activities.map(act => {
                                                         return <option>{act.label} </option>
                                                     })}
@@ -165,20 +165,19 @@ const CreateTrip = ({ }) => {
                                             <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faDollarSign} style={{ marginRight: 10 }} />
                                         Price
-                                    </Form.Label>
+                                            </Form.Label>
                                             <Col>
 
                                                 <Form.Control className="w-50" type="number" placeholder="1000" required />
-
-                                    </Col>
+                                            </Col>
                                         </Form.Row>
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
                                                 Meet up Time
-                                    </Form.Label>
+                                            </Form.Label>
                                             <Col>
-                                                <TimePicker defaultValue={moment('00:00', format)} format={format} />
+                                                <Form.Control className="w-50" as="textarea" rows={5} type="text" placeholder="BTS" required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -202,34 +201,27 @@ const CreateTrip = ({ }) => {
                                     <Button onClick={() => handleNextTab()} style={{ marginTop: 20, marginLeft: '60%' }}>Next</Button>
                                 </Tab.Pane>
 
-
                                 <Tab.Pane eventKey={stateTab2}>
+                                    
                                     <Form>
                                         <div>
                                             <Dragger {...props}>
-                                                <p className="ant-upload-drag-icon">
-                                                    <InboxOutlined />
-                                                </p>
+                                                <p className="ant-upload-drag-icon"><InboxOutlined /></p>
                                                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                                                 <p className="ant-upload-hint">
                                                     Support for a single or bulk upload. Strictly prohibit from uploading company data or other
                                                     band files
-                                        </p>
+                                                </p>
                                             </Dragger>
                                             <Image src={file ? URL.createObjectURL(file) : null} alt={file ? file.name : null} />
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{  marginLeft: '80%'}}>Submit</Button>
+                                    <Button style={{ marginLeft: '80%' }}>Submit</Button>
 
 
                                 </Tab.Pane>
                             </Tab.Content>
-                            <Container >
-
-                                
-                            </Container>
-
                         </Col>
                     </Row>
                 </Tab.Container>

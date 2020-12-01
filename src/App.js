@@ -8,10 +8,7 @@ import ChooseJob from './Guide/ChooseJob.js'
 import WorkSchedule from './Guide/WorkSchedule.js'
 
 
-import Test from './User/test.js'
-
-
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
   render() {
