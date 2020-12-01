@@ -16,7 +16,7 @@ function Profile() {
 
     return (
         <div>
-            <NavbarHead></NavbarHead>
+            <NavbarHead variant="light"></NavbarHead>
                 <Row>
                     <Col sm={4} style={{}}>
                         <Form style={{ marginTop: 80, marginLeft:25, marginRight:25}}>

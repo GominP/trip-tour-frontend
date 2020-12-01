@@ -11,6 +11,14 @@ import Profile from './Customer/Profile.js';
 import EditProfile from './Customer/EditProfile.js'
 
 class App extends React.Component {
+  componentDidMount() {
+    const token = localStorage.getItem('token')
+    if (token === null) {
+
+      
+    }
+    
+  }
   render() {
     return (
       <Router>
