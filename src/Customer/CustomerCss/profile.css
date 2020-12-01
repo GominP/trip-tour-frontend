@@ -11,8 +11,7 @@
 .ImageCard:hover{
   box-shadow: 5px 5px #0197f6;
 }
-.ImageCard:hover:active{
-}
+
 
 .Image {
   background-image: url("../../img/h1.jpg");

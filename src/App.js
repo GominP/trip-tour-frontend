@@ -35,8 +35,6 @@ class App extends React.Component {
             <Route exact path='/EditProfile' component={ EditProfile } />
             <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
             <Route exact path='/WorkSchedule' component={ WorkSchedule } />
-            
-
           </>
         </Switch>
       </Router>

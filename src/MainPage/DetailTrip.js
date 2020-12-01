@@ -2,9 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
 import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, useAccordionToggle } from 'react-bootstrap'
-import NavbarHead from '../NavBar/NavbarHead.js';
-import Nav from 'react-bootstrap/Nav'
-import Image from 'react-bootstrap/Image'
 import slide1 from '../img/h1.jpg';
 import slide2 from '../img/h2.jpg';
 import slide3 from '../img/h3.jpg';
@@ -14,6 +11,7 @@ import '../MainPage/MainPageCss/detailtrip.css'
 import  NavBarHead from '../NavBar/NavbarHead.js'
 import location from '../img/location.png'
 import staricon from '../img/star-icon.png'
+import StarRating from 'react-star-ratings';
 
 function DetailTrip(){
     const [index, setIndex] = useState(0);
@@ -22,58 +20,67 @@ function DetailTrip(){
       setIndex(selectedIndex);
     };
 
+    const cardImg = [
+        { img: slide1},
+        { img: slide2},
+        { img: slide3}
+    
+    ];
+
   return (
     <div >
         <NavBarHead variant="light"></NavBarHead>
         <div className='SlideShow'>
-            <Container>
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                    <Carousel.Item>
-                        <img className="d-block w-100" height="600" src={slide1} alt="First slide"/>
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                            <img className="d-block w-100" height="600" src={slide2} alt="Second slide"/>
-                            <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-block w-100" height="600" src={slide3} alt="Third slide" />
-                        <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </Container>
-        </div>
-        <div>
-             <Container>
-                <Row>
-                    <Col md={8} className="Topic">
-                        <Form.Group as={Col}>
-                        <h3>Street Food Tour in Bangkok Chinatown</h3>
-                        <div>
-                            <img src={location} style={{width:"30px"}}/>
-                            <b style={{marginLeft:"20px"}}>Bangkok</b>
-                        </div>
-                        <div className="ReviewTag">
-                            <img src={staricon} style={{width:"30px"}}/>
-                            
-                        </div>
-                        </Form.Group>
+            <Container >
+                <Row className=""  >
+                    <Col sm={8}>
+                        <Row>
+                            <Card style={{ width: '40rem'}}>
+                                <Carousel activeIndex={index} onSelect={handleSelect}>
+                                    {
+                                    cardImg.map(i => {
+                                        return (
+                                        <Carousel.Item>
+                                        <img
+                                            className="d-block w-100"
+                                            src={i.img}>
+                                        </img>
+                                        </Carousel.Item>
+                                        )
+                                    })
+                                    }                
+                                </Carousel>
+                                <Card.Body>
+                                    <div>
+                                        <h3>Street Food Tour in Bangkok Chinatown</h3>
+                                    </div>
+                                    <Form.Row>
+                                        
+                                        <img src={location} className="LocationImage"></img>
+                                        <Form.Label column="sm">Bangkok</Form.Label>
+                                    </Form.Row>
+                                    <Form.Row style={{ marginLeft: "1.5%"}}>
+                                        <StarRating starDimension="15px"
+                                        starSpacing ="0px"
+                                        rating={4.3}
+                                        starRatedColor="#FABD02"
+                                        ></StarRating>
+                                        <Form.Label column="sm"></Form.Label>
+                                    </Form.Row>
+
+                                </Card.Body>
+                            </Card>                
+                        </Row>
                     </Col>
+
+                    <Col sm={4}>
+                        <Row>
                     
-                 
+                        </Row>
+                    </Col>
+
                 </Row>
-             </Container>
+            </Container>
         </div>
         
 
