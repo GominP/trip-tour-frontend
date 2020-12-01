@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Profile from './Customer/Profile.js';
 import EditProfile from './Customer/EditProfile.js'
 import Detail from './Guide/MultiPage/Detail.js';
+import DetailTrip from './MainPage/DetailTrip.js';
 
 class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Route exact path='/ChooseJob/:id' component={ ChooseJob } />
             <Route exact path='/Profile' component={ Profile } />
             <Route exact path='/EditProfile' component={ EditProfile } />
+            <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
           </>
         </Switch>
       </Router>

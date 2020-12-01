@@ -11,7 +11,7 @@ import { InboxOutlined } from '@ant-design/icons';
 const Detail = ({ setForm, formData, navigation }) => {
     // const { firstName, lastName, nickName } = formData;
 
-    const { previous, next } = navigation;
+    // const { previous, next } = navigation;
 
     const { Dragger } = Upload;
 
@@ -87,7 +87,7 @@ const Detail = ({ setForm, formData, navigation }) => {
                                 </div>
                             </Form>
                             <div>
-                                <Button onClick={previous}> Previous </Button>
+                                <Button> Previous </Button>
 
                                 <Button > Submit </Button>
                             </div>
