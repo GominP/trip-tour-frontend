@@ -6,9 +6,9 @@ import CreateTrip from './Guide/CreateTrip.js'
 import SelectTrip from './Guide/SelectTrip.js'
 import ChooseJob from './Guide/ChooseJob.js'
 import WorkSchedule from './Guide/WorkSchedule.js'
-
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Profile from './Customer/Profile.js';
+import EditProfile from './Customer/EditProfile.js'
 
 class App extends React.Component {
   render() {
@@ -21,8 +21,8 @@ class App extends React.Component {
             <Route exact path='/SelectTrip' component={ SelectTrip } />
             <Route exact path='/ChooseJob/:id' component={ ChooseJob } />
             <Route exact path='/WorkSchedule' component={ WorkSchedule } />
-            
-
+            <Route exact path='/Profile' component={ Profile } />
+            <Route exact path='/EditProfile' component={ EditProfile } />
           </>
         </Switch>
       </Router>
