@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import { Container, Row, Col, Button, Nav, Navbar, Modal, Form, Tabs, Tab } from 'react-bootstrap'
+=======
+import { Button,Nav,Navbar  } from 'react-bootstrap'
+>>>>>>> a2dfdbe7707b003f8ef25abb01cf169cf97882cf
 
 
 function NavbarHead(props) {
@@ -140,12 +144,12 @@ function NavbarHead(props) {
 
     return (
     <div className="App">
-        <Navbar bg="rgba(0,0,0,0.4)" variant={ props.variant ? props.variant : "dark"} fixed="top" >
+        <Navbar bg="rgba(0,0,0,0.4)"  fixed="top" >
             <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/MultiStepForm">Test</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>              
+                <Nav.Link href="/CreateTrip">Test to Guide</Nav.Link>
+                <Nav.Link href="/Profile">Customer</Nav.Link>
             </Nav>
             <Nav className="justify-content-end">
                 <Nav.Link href="#login">Login</Nav.Link>
