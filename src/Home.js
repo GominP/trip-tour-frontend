@@ -18,7 +18,6 @@ function Home() {
 
   return (
     <div >
-        <NavBarHead/>
         <div>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
