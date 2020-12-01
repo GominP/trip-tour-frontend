@@ -143,62 +143,8 @@ const CreateTrip = ({ }) => {
                 console.log(res);
                 // window.location.href= "/"
             })
-
-
-            // let bodyFormData = new FormData();
-            // let keys = Object.keys(data)
-            // keys.map((k) => {    
-            //     console.log(k);
-            //     bodyFormData.append(k, data[k])
-            // })
-
-            // console.log(bodyFormData)
-
-            // axios({
-            //     method: 'post',
-            //     url: url + '/trip',
-            //     data: bodyFormData,
-            //     headers: {'Content-Type': 'multipart/form-data' }
-            // })
-            // .then(function (response) {
-            //     //handle success
-            //     console.log(response);
-            //     if (response.status === 201) {
-            //         window.location.href = '/'
-            //     }
-            // })
-            // .catch(function (response) {
-            //     //handle error
-            //     console.log(response);
-            // });
      
         })
-
-        // let bodyFormData = new FormData();
-        // const keys = Object.keys(data)
-        // keys.map((k) => {    
-        //     bodyFormData.append(k, data[k])
-        // })
-
-        // console.log(data)
-
-        // axios({
-        //     method: 'post',
-        //     url: url + '/trip',
-        //     data: bodyFormData,
-        //     headers: {'Content-Type': 'multipart/form-data' }
-        // })
-        // .then(function (response) {
-        //     //handle success
-        //     console.log(response);
-        //     if (response.status === 201) {
-        //         window.location.href = '/'
-        //     }
-        // })
-        // .catch(function (response) {
-        //     //handle error
-        //     console.log(response);
-        // });
      
         
     }
