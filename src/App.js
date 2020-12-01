@@ -10,6 +10,7 @@ import ChooseJob from './Guide/ChooseJob.js'
 import MultiStepForm from './Guide/MultiPage/MultiStepForm.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Profile from './Customer/Profile.js';
+import EditProfile from './Customer/EditProfile.js'
 import Detail from './Guide/MultiPage/Detail.js';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
             <Route exact path='/SelectTrip' component={ SelectTrip } />
             <Route exact path='/ChooseJob/:id' component={ ChooseJob } />
             <Route exact path='/Profile' component={ Profile } />
+            <Route exact path='/EditProfile' component={ EditProfile } />
           </>
         </Switch>
       </Router>

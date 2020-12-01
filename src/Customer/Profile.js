@@ -30,40 +30,44 @@ function Profile() {
                                 </Form>
                             </Form.Row>
                             <Form.Group>
-                                <a href="/editProfile" class="btn btn-primary btn-lg btn-block" role="button" aria-disabled="true" style={{marginTop:30}}>edit Profile</a>
+                                <a href="/EditProfile" class="btn btn-primary btn-lg btn-block" role="button" aria-disabled="true" style={{marginTop:30}}>Edit Profile</a>
                             </Form.Group>
                         </Form>
                     </Col>
 
                     <Col sm={8} style={{ marginTop:80, height: "100vh", backgroundColor: "#ECECEC" }}>
                         <Form style={{ marginTop: 20, marginLeft: 50 }}>
-                            <Form.Row>
-                                <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
+                            <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
+                                <Form.Row>
                                     <Nav variant="pills" className="flex-row">
                                         <Nav.Item>
-                                            <b><Nav.Link eventKey="second" style={{fontSize:"24px" }}>Request</Nav.Link></b>
+                                            <b><Nav.Link eventKey="second" style={{fontSize:"18px" }}>Request(0)</Nav.Link></b>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <b><Nav.Link eventKey="first" style={{fontSize:"24px" }}>Booking</Nav.Link></b>
+                                            <b><Nav.Link eventKey="first" style={{fontSize:"18px" }}>Booking(0)</Nav.Link></b>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <b><Nav.Link eventKey="Second" style={{fontSize:"24px" }}>Post-Trip</Nav.Link></b>
+                                            <b><Nav.Link eventKey="third" style={{fontSize:"18px" }}>Post-Trip(0)</Nav.Link></b>
                                         </Nav.Item>
                                     </Nav>
-                                </Tab.Container>
-                                {/* <button type="button" class={ isRequest ? "btn btn-light" : "btn btn-primary" } onClick ={ () => setIsRequest(!isRequest) }>Request</button>
-                            <button type="button" class="btn btn-primary">Booking</button>
-                            <button type="button" class="btn btn-secondary" >Post-Trip</button> */}
-
-                            </Form.Row>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Tab.Content>
+                                        <Tab.Pane eventKey="first">
+                                            Your Booking list
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="second">
+                                            request Trip 
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="third">
+                                            Post Trip
+                                        </Tab.Pane>
+                                    </Tab.Content>
+                                </Form.Row>       
+                            </Tab.Container>
                         </Form>
                     </Col>
-
-
                 </Row>
-            {/* </Container> */}
-
-
         </div>
     );
 }
