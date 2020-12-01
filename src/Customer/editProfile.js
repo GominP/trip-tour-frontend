@@ -1,19 +1,56 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect, useState } from "react";
-import Select from 'react-select'
+import React, {useEffect,useState} from 'react'
 import pictureIcon from '../img/pictureIcon.png'
-import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, useAccordionToggle } from 'react-bootstrap'
+import { Container, Col, Row,Form, Button } from 'react-bootstrap'
 import NavbarHead from '../NavBar/NavbarHead.js';
 import Nav from 'react-bootstrap/Nav'
-import Image from 'react-bootstrap/Image'
 import slide1 from '../img/h1.jpg';
+import axios from "axios";
 import ReactRoundedImage from "react-rounded-image";
-import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'
-import FormImpl from 'react-bootstrap/esm/Form';
-
-
+import { Tab } from 'react-bootstrap'
 
 function EditProfile(){
+    const url = "http://192.168.102.22:3030/api"
+    const axios = require('axios');
+
+    const [data, setData] = useState({
+        id: '',
+        fname: '',
+        lname: '',
+        email: '',
+        phone_number: ''
+
+    })
+
+    const updateProfile = (e,key) => {
+        setData({
+            ...data,
+            [key]:e.target.value
+        
+        })
+    }
+
+    const putProfile = () => {
+
+        console.log(data);
+
+        // axios({
+        //     method: 'put',
+        //     url: url + '/user' + data.province
+        // }).then((res) => {
+        //     console.log(data);
+
+        //     axios.post(url + '/trip', data)
+        //     .then( res => {
+        //         console.log(res);
+        //         // window.location.href= "/"
+        //     })
+     
+        // })
+     
+        
+    }
+
     return (
         <div>
             <Container style={{marginTop:80}}>
@@ -46,27 +83,27 @@ function EditProfile(){
                                             <Form.Row style={{marginLeft:"80px", marginRight:"60px", marginBottom:"-10px"}}>
                                                 <Form.Group as={Col} controlId="formGridName">
                                                     <Form.Label>Name</Form.Label>
-                                                    <Form.Control type="text" placeholder="Enter name" />
+                                                    <Form.Control type="text" placeholder="Enter name" value={ data.fname} onChange={(e) => updateProfile(e,'fname')}  required/>
                                                 </Form.Group>
 
                                                 <Form.Group as={Col} controlId="formGridSurname">
                                                     <Form.Label>Surname</Form.Label>
-                                                    <Form.Control type="text" placeholder="Enter Surname" />
+                                                    <Form.Control type="text" placeholder="Enter Surname" value={ data.lname} onChange={(e) => updateProfile(e,'lname')}  required />
                                                 </Form.Group>
                                             </Form.Row>
                                             <Form.Row style={{marginLeft:"80px", marginRight:"60px", marginBottom:"-10px"}}>
                                                 <Form.Group as={Col} controlId="formGridNickname" >
                                                     <Form.Label>Phone Number</Form.Label>
-                                                    <Form.Control  type="text" placeholder="Enter Phone Number" />
+                                                    <Form.Control  type="text" placeholder="Enter Phone Number" value={ data.phone_number} onChange={(e) => updateProfile(e,'phone_number')}  required />
                                                 </Form.Group>
                                                 <Form.Group as={Col} controlId="formGridGender">
-                                                    <Form.Label>Birth of Date</Form.Label>
-                                                    <Form.Control type="date"></Form.Control>
+                                                    <Form.Label>Email address</Form.Label>
+                                                    <Form.Control type="email" value={ data.email} onChange={(e) => updateProfile(e,'email')}  required></Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
                                             
                                             <Form.Row style={{marginLeft:"355px", marginTop:"10px"}}>
-                                                <Button>Save Changes</Button>
+                                                <Button onClick={()=> putProfile()}>Save Changes</Button>
                                             </Form.Row>
                                         </Form>
                                     </Tab.Pane>
