@@ -102,7 +102,7 @@ function EditProfile(){
                                                 </Form.Group>
                                                 <Form.Group as={Col} controlId="formGridGender">
                                                     <Form.Label>Email address</Form.Label>
-                                                    <Form.Control type="email" value={ data.email} onChange={(e) => updateProfile(e,'email')}  required></Form.Control>
+                                                    <Form.Control type="email" placeholder="Enter Email address" value={ data.email} onChange={(e) => updateProfile(e,'email')}  required></Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
                                             

@@ -1,20 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
-import Select from 'react-select'
-import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, useAccordionToggle } from 'react-bootstrap'
+import {  Col, Row, Form} from 'react-bootstrap'
 import NavbarHead from '../NavBar/NavbarHead.js';
 import Nav from 'react-bootstrap/Nav'
 import slide1 from '../img/h1.jpg';
 import ReactRoundedImage from "react-rounded-image";
-import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'
+import { Tab } from 'react-bootstrap'
 import '../Customer/CustomerCss/profile.css';
-import DetailTrip from '../MainPage/DetailTrip'
 import { Link } from 'react-router-dom';
 
 function Profile() {
 
-    // const [color, setColor] = useState("btn btn-secondary")
-    const [isRequest, setIsRequest] = useState(true)
+    const url = "http://192.168.102.22:3030/api"
+    const axios = require('axios');
+
+
+    //Booking
+    const [bookings, setBookings] = useState([])
+
+
+    //Post-Trip
+    const [postTrips, setPostTrips] = useState([])
+
+
+
+    useEffect(() => {
+    //Get bookings
+    //     axios.get(url + '/province').then(res => {
+    //         console.log(res.data);
+    //         const booking = res.data.map((d)=> d.name)
+    //         setBookings(booking)
+    // })
+
+    //Get Post-Trip 
+    //     axios.get(url + '/province').then(res => {
+    //         console.log(res.data);
+    //         const postTrip = res.data.map((d)=> d.name)
+    //         setPostTrips(postTrip)
+    // })
+        
+    }, [])
 
     return (
         <div>
@@ -41,10 +66,10 @@ function Profile() {
                             <Form.Row>
                                 <Nav variant="pills" className="flex-row">
                                     <Nav.Item>
-                                        <b><Nav.Link eventKey="first" style={{ fontSize: "18px" }}>Booking(0)</Nav.Link></b>
+                                        <b><Nav.Link eventKey="first" style={{ fontSize: "18px" }}>Booking</Nav.Link></b>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <b><Nav.Link eventKey="second" style={{ fontSize: "18px" }}>Post-Trip(0)</Nav.Link></b>
+                                        <b><Nav.Link eventKey="second" style={{ fontSize: "18px" }}>Post-Trip</Nav.Link></b>
                                     </Nav.Item>
                                 </Nav>
                             </Form.Row>
