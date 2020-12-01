@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import { Container, Row, Col, Button, Nav, Navbar, Modal, Form, Tabs, Tab } from 'react-bootstrap'
+=======
+import { Button,Nav,Navbar  } from 'react-bootstrap'
+>>>>>>> add Work Schedule
 
 
 function NavbarHead(props) {
