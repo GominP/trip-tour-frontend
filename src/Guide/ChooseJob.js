@@ -50,62 +50,54 @@ function ChooseJob() {
         <Row className=""  >
             <Col sm={8}>
               <Row>
-              <Card style={{ width: '40rem'}}>
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                    {
-                      cardImg.map(i => {
-                        return (
-                          <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src={i.img}>
-                          </img>
-                          </Carousel.Item>
-                        )
-                      })
-                    }                
-                </Carousel>
-                <Card.Body>
+                <Card style={{ width: '40rem'}}>
+                  <Carousel activeIndex={index} onSelect={handleSelect}>
+                      {
+                        cardImg.map(i => {
+                          return (
+                            <Carousel.Item>
+                            <img
+                              className="d-block w-100"
+                              src={i.img}>
+                            </img>
+                            </Carousel.Item>
+                          )
+                        })
+                      }                
+                  </Carousel>
+                  <Card.Body>
 
-                  <Card.Text>
-                  <dl class="row">
-                    <dt class="col-sm-3">Name Trip</dt>
-                    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+                    <Card.Text>
+                    <dl class="row">
+                      <dt class="col-sm-3">Name Trip</dt>
+                      <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
 
-                    <dt class="col-sm-3">Detail</dt>
-                    <dd class="col-sm-9">
-                      <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-                      <p>Donec id elit non mi porta gravida at eget metus.</p>
-                    </dd>
+                      <dt class="col-sm-3">Detail</dt>
+                      <dd class="col-sm-9">
+                        <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
+                        <p>Donec id elit non mi porta gravida at eget metus.</p>
+                      </dd>
 
-                    <dt class="col-sm-3">Province</dt>
-                    <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+                      <dt class="col-sm-3">Province</dt>
+                      <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
 
-                    <dt class="col-sm-3 text-truncate">Main activities</dt>
-                    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                      <dt class="col-sm-3 text-truncate">Main activities</dt>
+                      <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
 
-                    <dt class="col-sm-3">Price</dt>
-                    <dd class="col-sm-9">
-                      <dl class="row">
-                        <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
-                      </dl>
-                    </dd>
-                    <dt class="col-sm-3 text-truncate">Maximum travelers</dt>
-                    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                      <dt class="col-sm-3">Price</dt>
+                      <dd class="col-sm-9">
+                        <dl class="row">
+                          <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+                        </dl>
+                      </dd>
+                      <dt class="col-sm-3 text-truncate">Maximum travelers</dt>
+                      <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
 
-                  </dl>
-                  </Card.Text>
-                </Card.Body>
-            </Card> 
-                
-                  
-                                
-              </Row>
-              <Row style={{ marginTop: 50 }}>
-              
-                  Photo Gallery
-                    
-              </Row>
+                    </dl>
+                    </Card.Text>
+                  </Card.Body>
+              </Card>            
+            </Row>
             </Col>
             <Col sm={4}>
                 <Row>

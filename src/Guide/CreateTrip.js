@@ -117,10 +117,9 @@ const CreateTrip = ({ }) => {
     //     moment(timeEnd).format("LT"));
     // } 
 
-    //Post Method
-    
-    
 
+
+    //Post Method
     const postCreateTrip = () => {
 
         console.log(data);
@@ -256,7 +255,7 @@ const CreateTrip = ({ }) => {
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
-                                                Meet up Time
+                                                Meet up Location
                                             </Form.Label>
                                             <Col>
                                                 <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meeting_point} onChange={(e) => createTrip(e,'meeting_point')} required />
@@ -299,7 +298,7 @@ const CreateTrip = ({ }) => {
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{ marginLeft: '80%' }}    >Submit</Button>
+                                    <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
 
                                 </Tab.Pane>
 

@@ -3,16 +3,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarGuide from '../NavBar/NavBarGuide.js'
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-import Select from 'react-select'
-import { useSelect } from 'react-select-search';
-import { Container, Col, Row, Carousel, CardColumns, CardGroup, Card, Form, Button } from 'react-bootstrap'
-import { render } from '@testing-library/react';
-
-
+import { Container, Row, CardColumns, CardGroup, Card,Button } from 'react-bootstrap'
 
 
 function SelectTrip() {
+    const url = "http://192.168.102.22:3030/api"
+    const axios = require('axios');
+
     const cardInfo = [
         { image: "", title: "Bahli", text: " Test" },
         { image: "", title: "Phuket", text: " Test" },
@@ -20,6 +19,21 @@ function SelectTrip() {
         { image: "", title: "Koh samui", text: " Test" },
         { image: "", title: "Koh kud", text: "Test " }
     ];
+    //Trip
+    const [tripOption, setTripOption] = useState([]);
+
+
+    useEffect(() => {
+
+        //Get All Trip
+        //     axios.get(url + '/province').then(res => {
+        //         console.log(res.data);
+        //         const trips = res.data.map((d)=> d.name)
+        //         setBookings(trips)
+        // })
+    
+            
+        }, [])
 
     return (
         <div>
