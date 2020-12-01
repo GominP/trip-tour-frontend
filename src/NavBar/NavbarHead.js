@@ -2,14 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button, Nav, Navbar, Modal, Form, Tabs, Tab } from 'react-bootstrap'
-import { user } from '../App.js' 
+
 
 function NavbarHead(props) {
-
-    const handleOnLogout = (e) => {
-        localStorage.removeItem('token')
-        window.location.href = '/'
-    }
 
     const url = 'http://192.168.102.22:3030/api'
     const license_type = [
@@ -25,10 +20,8 @@ function NavbarHead(props) {
         'BROWN'
     ]
 
-    const [alertMessage, setAlert] = useState('')
     const [showLogin, setShowLogin] = useState(false);
     const [show, setShow] = useState(false);
-    const [loginData, setLoginData] = useState({})
     const [data, setData] = useState({
         fname: '',
         lname: '',
@@ -53,19 +46,11 @@ function NavbarHead(props) {
     }
 
     const handleLoginClose = () => {
-        setValidated(false)
         setShowLogin(false);
     }
 
     const handleLoginShow = () => setShowLogin(true)
     const handleShow = () => setShow(true);
-
-    const handleLoginInputChange = (e, key) => {
-        setLoginData({
-            ...loginData,
-            [key]: e.target.value
-        })
-    }
 
     const handleInputChange = (e, key) => {
         if (key === "selfie_img") {
@@ -98,31 +83,6 @@ function NavbarHead(props) {
             selfie_img: null
         })
         setValidated(false)
-    }
-
-    const onLoginSubmit = async (e) => {
-        e.preventDefault();
-        axios({
-            method: 'post',
-            url: url + '/login',
-            headers: {}, 
-            data: {
-                ...loginData // This is the body part
-            }
-        })
-        .then(function (response) {
-            //handle success
-            console.log(response);
-            if (response.status === 200) {
-                localStorage.setItem('token', response.data)
-                window.location.href = '/'
-            }
-        })
-        .catch(function (response) {
-            //handle error
-            console.log(response);
-            setAlert('Incorrect email or password')
-        });
     }
 
     const onUserSubmit = async (e) => {
@@ -186,45 +146,39 @@ function NavbarHead(props) {
     }
 
     return (
-    <div className="App">
-        <Navbar bg="rgba(0,0,0,0.4)" variant={props.variant ? props.variant : "dark"} fixed="top" bg="dark">
-            <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="/CreateTrip">Test to Guide</Nav.Link>
-                <Nav.Link href="/Profile">Customer</Nav.Link>
-            </Nav>
-            {props.isLogin ? 
-                <Nav className="justify-content-end">
-                    <Nav.Link onClick={handleOnLogout}>Logout</Nav.Link>
+        <div className="App">
+            <Navbar bg="rgba(0,0,0,0.4)" variant={props.variant ? props.variant : "dark"} fixed="top" >
+                <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/CreateTrip">Test to Guide</Nav.Link>
+                    <Nav.Link href="/Profile">Customer</Nav.Link>
                 </Nav>
-            : 
                 <Nav className="justify-content-end">
-                    <Nav.Link onClick={handleLoginShow}>Login</Nav.Link>
+                    <Nav.Link onClick={handleLoginShow} href="#login">Login</Nav.Link>
                     <Nav.Link onClick={handleShow}>Register</Nav.Link>
                 </Nav>
-            }
-        </Navbar>
+            </Navbar>
 
             <Modal show={showLogin} onHide={handleLoginClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form style={{  display: 'flex', flexDirection: 'column',justifyContent: 'center' }} 
-                            onSubmit={onLoginSubmit}>
+                    <Form style={{  display: 'flex', flexDirection: 'column',justifyContent: 'center' }} >
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Email" value={loginData.email} onChange={e => handleLoginInputChange(e, 'email')} required/>
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Password" value={loginData.password} onChange={e => handleLoginInputChange(e, 'password')} required/>
-                            <Form.Text className="text-muted" className="alert-danger">
-                                {alertMessage}
-                            </Form.Text>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
+
                     </Form>
 
                 </Modal.Body>
@@ -277,7 +231,7 @@ function NavbarHead(props) {
                                                 <Form.Control type="date" value={data.birth_date} onChange={e => handleInputChange(e, "birth_date")} required />
                                                 <Form.Text className="text-muted">
                                                     Date of Birth
-                                                </Form.Text>
+                            </Form.Text>
                                             </Form.Group>
                                         </Col>
                                     </Row>
