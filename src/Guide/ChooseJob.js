@@ -1,5 +1,3 @@
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarGuide from '../NavBar/NavBarGuide.js';
 import React, { useEffect, useState } from "react";

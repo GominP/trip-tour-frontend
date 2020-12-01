@@ -1,8 +1,28 @@
-.btn.btn-primary:hover,
-.btn.btn-primary:focus,
-.btn.btn-primary:active,
-.btn.btn-primary.active {
-  color: #ffffff;
-  background-color: pink;
-  border-color: pink;
+.ImageCard{
+  display: flex;
+  background-color:white;
+  width: 800px;
+  height: 200px;
+  padding:10px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.ImageCard:hover{
+  box-shadow: 5px 5px #0197f6;
+}
+.ImageCard:hover:active{
+}
+
+.Image {
+  background-image: url("../../img/h1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+ 
+}
+
+.TitleDetailCard{
+  padding: 10px;
 }

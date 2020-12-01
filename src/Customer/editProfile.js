@@ -42,96 +42,33 @@ function EditProfile(){
                                             <div style={{marginLeft:310}}>
                                                 <ReactRoundedImage image={slide1} roundedSize="0" imageWidth="210" imageHeight="210" />
                                             </div>
-                                            <div style={{marginTop:"-55px", marginLeft:"460px", position:"absolute"}}>
+                                            <div style={{marginTop:"-55px", marginLeft:"460px", position:"absolute"}} >
                                                 <ReactRoundedImage style={{height: '300px'}} image={pictureIcon} imageWidth="60" imageHeight="60" roundedColor="#000000" roundedSize="7"  />
                                             </div>
                                         </Form.Group>
                                         <Form>
                                             <Form.Row style={{marginLeft:"80px", marginRight:"60px", marginBottom:"-10px"}}>
-                                                <Form.Group as={Col} >
-                                                    <Form.Label>Title</Form.Label>
-                                                    <div style={{boxSizing:"border-box", paddingRight:"80"}}>
-                                                        <Form.Control style={{paddingRight:"20px"}}
-                                                        as="select"
-                                                        className="mr-sm-2"
-                                                        id="inlineFormCustomSelect"
-                                                        custom>
-                                                            <option value="0">Choose...</option>
-                                                            <option value="1">นาย</option>
-                                                            <option value="2">นาง</option>
-                                                            <option value="3">นางสาว</option>
-                                                        </Form.Control>
-                                                    </div>
-                                                </Form.Group>
-                                                
                                                 <Form.Group as={Col} controlId="formGridName">
                                                     <Form.Label>Name</Form.Label>
-                                                    <Form.Control  placeholder="Enter name" />
+                                                    <Form.Control type="text" placeholder="Enter name" />
                                                 </Form.Group>
 
                                                 <Form.Group as={Col} controlId="formGridSurname">
                                                     <Form.Label>Surname</Form.Label>
-                                                    <Form.Control  placeholder="Enter Surname" />
+                                                    <Form.Control type="text" placeholder="Enter Surname" />
                                                 </Form.Group>
                                             </Form.Row>
                                             <Form.Row style={{marginLeft:"80px", marginRight:"60px", marginBottom:"-10px"}}>
                                                 <Form.Group as={Col} controlId="formGridNickname" >
-                                                    <Form.Label>Nickname</Form.Label>
-                                                    <Form.Control placeholder="Enter Nickname" />
+                                                    <Form.Label>Phone Number</Form.Label>
+                                                    <Form.Control  type="text" placeholder="Enter Phone Number" />
                                                 </Form.Group>
                                                 <Form.Group as={Col} controlId="formGridGender">
-                                                    <Form.Label>Gender</Form.Label>
-                                                    <div style={{boxSizing:"border-box"}}>
-                                                        <Form.Control style={{paddingRight:"20px"}}
-                                                        as="select"
-                                                        className="mr-sm-2"
-                                                        id="inlineFormCustomSelect"
-                                                        custom>
-                                                            <option value="0">Gender</option>
-                                                            <option value="1">Male</option>
-                                                            <option value="2">Female</option>
-                                                        </Form.Control>
-                                                    </div>
-                                                </Form.Group>
-                                                <Form.Group as={Col} controlId="formGridGender">
-                                                    <Form.Label>Birth</Form.Label>
-                                                    <div style={{boxSizing:"border-box"}}>
-                                                        <Form.Control style={{paddingRight:"20px"}}
-                                                        as="select"
-                                                        className="mr-sm-2"
-                                                        id="inlineFormCustomSelect"
-                                                        custom>
-                                                            <option value="0">Birth</option>
-                                                            <option value="1">Male</option>
-                                                            <option value="2">Female</option>
-                                                        </Form.Control>
-                                                    </div>
+                                                    <Form.Label>Birth of Date</Form.Label>
+                                                    <Form.Control type="date"></Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
-                                            <Form.Row style={{marginLeft:"80px", marginRight:"60px", marginBottom:"-10px"}}>
-                                                <Form.Group as={Col} controlId="formGridCity">
-                                                    <Form.Label>Language</Form.Label>
-                                                    <Form.Control 
-                                                        as="select"
-                                                        className="mr-sm-2"
-                                                        id="inlineFormCustomSelect"
-                                                        custom>
-                                                        <option value="0">Language</option>
-                                                    </Form.Control>
-                                                </Form.Group>
-                                            </Form.Row>
-                                            <Form.Row style={{marginLeft:"80px", marginRight:"60px"}}>
-                                                <Form.Group as={Col} controlId="formGridCity">
-                                                    <Form.Label>Country of passport</Form.Label>
-                                                    <Form.Control 
-                                                        as="select"
-                                                        className="mr-sm-2"
-                                                        id="inlineFormCustomSelect"
-                                                        custom>
-                                                        <option value="0">Thai</option>
-                                                    </Form.Control>
-                                                </Form.Group>
-                                            </Form.Row>
+                                            
                                             <Form.Row style={{marginLeft:"355px", marginTop:"10px"}}>
                                                 <Button>Save Changes</Button>
                                             </Form.Row>
@@ -143,11 +80,11 @@ function EditProfile(){
                                                 <Form style={{marginLeft:"80px", marginRight:"80px"}}>
                                                     <Form.Group as={Col} controlId="formGridNewPassword">
                                                         <Form.Label>New Password</Form.Label>
-                                                        <Form.Control placeholder="Enter New Password" />
+                                                        <Form.Control type="text" placeholder="Enter New Password" />
                                                     </Form.Group>
                                                     <Form.Group as={Col} controlId="formGridConfirmPassword">
                                                         <Form.Label>Comfirm Password</Form.Label>
-                                                        <Form.Control placeholder="Enter Confirm Password" />
+                                                        <Form.Control type="text" placeholder="Enter Confirm Password" />
                                                     </Form.Group>
                                                 </Form>
                                                 <Button type="submit" style={{marginLeft:"300px", marginTop:"20px", width:"30vh"}}>Save</Button>
