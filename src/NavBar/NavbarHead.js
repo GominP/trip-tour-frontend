@@ -6,6 +6,11 @@ import { Container, Row, Col, Button, Nav, Navbar, Modal, Form, Tabs, Tab } from
 
 function NavbarHead(props) {
 
+    const handleOnLogout = (e) => {
+        localStorage.removeItem('token')
+        window.location.href = '/'
+    }
+
     const url = 'http://192.168.102.22:3030/api'
     const license_type = [
         'SILVER',
@@ -22,6 +27,7 @@ function NavbarHead(props) {
 
     const [showLogin, setShowLogin] = useState(false);
     const [show, setShow] = useState(false);
+    const [loginData, setLogin] = useState({})
     const [data, setData] = useState({
         fname: '',
         lname: '',
@@ -40,6 +46,9 @@ function NavbarHead(props) {
 
     const [validated, setValidated] = useState(false);
 
+    const [alertMessage, setAlert] = useState('');
+
+
     const handleClose = () => {
         setValidated(false);
         setShow(false);
@@ -51,6 +60,13 @@ function NavbarHead(props) {
 
     const handleLoginShow = () => setShowLogin(true)
     const handleShow = () => setShow(true);
+
+    const handleLoginInputChange = (e, key) => {
+        setLogin({
+            ...loginData,
+            [key]: e.target.value
+        })
+    }
 
     const handleInputChange = (e, key) => {
         if (key === "selfie_img") {
@@ -83,6 +99,34 @@ function NavbarHead(props) {
             selfie_img: null
         })
         setValidated(false)
+    }
+
+    const onLoginSubmit = (e) => {
+        e.preventDefault()
+        console.log(loginData);
+        axios({
+            method: 'post',
+            url: url + '/login',
+            headers: {}, 
+            data: {
+              ...loginData // This is the body part
+            }
+        })
+        .then(function (response) {
+            //handle success
+            console.log(response);
+            if (response.status === 200) {
+                console.log(response.data);
+                localStorage.setItem('token', response.data)
+                window.location.href = '/'
+            } 
+        })
+        .catch(function (response) {
+            //handle error
+            console.log(response);
+            console.log('asa');
+            setAlert('Incorrect email or password.')
+        });
     }
 
     const onUserSubmit = async (e) => {
@@ -130,35 +174,67 @@ function NavbarHead(props) {
                 data: bodyFormData,
                 headers: { 'Content-Type': 'multipart/form-data' }
             })
-                .then(function (response) {
-                    //handle success
-                    console.log(response);
-                    if (response.status === 201) {
-                        window.location.href = '/'
-                    }
-                })
-                .catch(function (response) {
-                    //handle error
-                    console.log(response);
-                });
+            .then(function (response) {
+                //handle success
+                console.log(response);
+                if (response.status === 201) {
+                    window.location.href = '/'
+                }
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
         }
         setValidated(true)
     }
 
     return (
     <div className="App">
-        <Navbar bg="rgba(0,0,0,0.4)" variant={ props.variant ? props.variant : "dark"} fixed="top" >
+        <Navbar bg="rgba(0,0,0,0.4)" variant="dark" bg="dark" fixed="top" >
             <Navbar.Brand href="/">Trip & Tour</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/CreateTrip">Test</Nav.Link>
                 <Nav.Link href="/Profile">Customer</Nav.Link>
             </Nav>
+            {props.isLogin ? 
             <Nav className="justify-content-end">
-                <Nav.Link href="#login">Login</Nav.Link>
+                <Nav.Link onClick={handleOnLogout}>Logout</Nav.Link>
+            </Nav>
+            :
+            <Nav className="justify-content-end">
+                <Nav.Link onClick={handleLoginShow}>Login</Nav.Link>
                 <Nav.Link onClick={handleShow}>Register</Nav.Link>  
             </Nav>
+            }
         </Navbar>
+
+        <Modal show={showLogin} onHide={handleLoginClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form style={{  display: 'flex', flexDirection: 'column',justifyContent: 'center' }} 
+                        onSubmit={onLoginSubmit}>
+                        <Form.Group>
+                            <Form.Control type="email" placeholder="Email" value={loginData.email} onChange={e=>handleLoginInputChange(e, 'email')} required/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Control type="password" placeholder="Password" value={loginData.password} onChange={e=>handleLoginInputChange(e, 'password')} required/>
+                            <Form.Text className="text-muted alert-danger">
+                                {alertMessage}
+                            </Form.Text>
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+
+                    </Form>
+
+                </Modal.Body>
+
+            </Modal>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
