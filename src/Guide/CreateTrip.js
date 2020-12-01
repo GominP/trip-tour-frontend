@@ -12,9 +12,8 @@ import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Container, Col, Row, Form, Button, Nav, Tab, Image, Carousel } from 'react-bootstrap'
 
-const CreateTrip = ({ }) => {
+const CreateTrip = () => {
     const url = "http://192.168.102.22:3030/api"
-    const axios = require('axios');
 
     // TabState
     const [stateTab, setStatTab] = useState("first");
@@ -117,9 +116,10 @@ const CreateTrip = ({ }) => {
     //     moment(timeEnd).format("LT"));
     // } 
 
-
-
     //Post Method
+    
+    
+
     const postCreateTrip = () => {
 
         console.log(data);
@@ -164,7 +164,6 @@ const CreateTrip = ({ }) => {
     return (
 
         <div>
-            <NavBarGuide />
             <Container style={{ marginTop: 80 }}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row>
@@ -243,7 +242,7 @@ const CreateTrip = ({ }) => {
                                         </Form.Row>
                                         <br />
                                         <Form.Row>
-                                        <Form.Label column lg={4}>
+                                            <Form.Label column lg={4}>
                                                 <FontAwesomeIcon icon={faDollarSign} style={{ marginRight: 10 }} />
                                         Price
                                             </Form.Label>
@@ -255,7 +254,7 @@ const CreateTrip = ({ }) => {
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
-                                                Meet up Location
+                                                Meet up Time
                                             </Form.Label>
                                             <Col>
                                                 <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meeting_point} onChange={(e) => createTrip(e,'meeting_point')} required />

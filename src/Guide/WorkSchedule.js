@@ -32,9 +32,6 @@ function WorkSchedule() {
             />
           </Col>
           <Col sm={8}>
-<<<<<<< HEAD
-            
-=======
             <Card body style={{ textAlign: 'center'}}>
               <Card.Title >
                 Work Detail
@@ -63,7 +60,6 @@ function WorkSchedule() {
 
             </Card>
 
->>>>>>> db20fbc5c31270f72b5a762ddd63860ad07797ff
           </Col>
         </Row>
       </Container>
