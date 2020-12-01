@@ -24,7 +24,7 @@ function DetailTrip(){
 
   return (
     <div >
-        <NavBarHead/>
+        <NavBarHead variant="light"></NavBarHead>
         <div className='SlideShow'>
             <Container>
                 <Carousel activeIndex={index} onSelect={handleSelect}>
@@ -66,6 +66,7 @@ function DetailTrip(){
                         </div>
                         <div className="ReviewTag">
                             <img src={staricon} style={{width:"30px"}}/>
+                            
                         </div>
                         </Form.Group>
                     </Col>

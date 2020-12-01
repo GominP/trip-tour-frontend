@@ -9,10 +9,8 @@ import WorkSchedule from './Guide/WorkSchedule.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Profile from './Customer/Profile.js';
 import EditProfile from './Customer/EditProfile.js'
-import Detail from './Guide/MultiPage/Detail.js';
 import DetailTrip from './MainPage/DetailTrip.js';
 
-import Test from './User/test.js'
 
 class App extends React.Component {
   componentDidMount() {
