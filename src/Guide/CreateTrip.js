@@ -299,7 +299,7 @@ const CreateTrip = ({ }) => {
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
+                                    <Button style={{ marginLeft: '80%' }}    >Submit</Button>
 
                                 </Tab.Pane>
 
