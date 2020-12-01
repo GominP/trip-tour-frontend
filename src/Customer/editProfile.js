@@ -15,7 +15,7 @@ import FormImpl from 'react-bootstrap/esm/Form';
 function EditProfile(){
     return (
         <div>
-            <NavbarHead></NavbarHead>
+            <NavbarHead variant="light"></NavbarHead>
             <Container style={{marginTop:80}}>
                 <Row>
                     <Tab.Container  defaultActiveKey="first">
