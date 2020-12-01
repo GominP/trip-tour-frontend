@@ -73,13 +73,14 @@ const CreateTrip = ({ }) => {
 
 
     const [data, setData] = useState({
-        nameTrip: '',
-        province: '',
+        name: '',
+        province: 'Bangkok',
         address: '',
         detail: '',
-        activity: '',
+        tag: 'Art & Craft Workshops',
         price: '',
-        meetUp: '',
+        meeting_point: '',
+
 
     })
     const createTrip = (e,key) => {
@@ -104,21 +105,101 @@ const CreateTrip = ({ }) => {
     }
 
 
-    const showData = () => {
-        console.log('test on change: ' + data.nameTrip + 
-        data.province + 
-        data.address + 'and' +
-        data.detail + 'and' +
-        data.activity + 'and' +
-        data.price + 'and' +
-        data.meetUp + 'and' +
-        moment(timeStart).format("LT") + 'and' + 
-        moment(timeEnd).format("LT"));
-    } 
+    // const showData = () => {
+    //     console.log('test on change: ' + data.nameTrip + 
+    //     data.province + 
+    //     data.address + 'and' +
+    //     data.detail + 'and' +
+    //     data.activity + 'and' +
+    //     data.price + 'and' +
+    //     data.meetUp + 'and' +
+    //     moment(timeStart).format("LT") + 'and' + 
+    //     moment(timeEnd).format("LT"));
+    // } 
 
     //Post Method
+    
+    
+
     const postCreateTrip = () => {
-        axios.post()
+
+        console.log(data);
+
+        axios({
+            method: 'get',
+            url: url + '/province/name/' + data.province
+        }).then((res) => {
+            const provinceId = res.data[0]._id
+            setData({
+                ...data,
+                start_time: timeStart,
+                end_time: timeEnd,
+                province_id: provinceId
+            })
+            console.log(data);
+
+            axios.post(url + '/trip', data)
+            .then( res => {
+                console.log(res);
+                // window.location.href= "/"
+            })
+
+
+            // let bodyFormData = new FormData();
+            // let keys = Object.keys(data)
+            // keys.map((k) => {    
+            //     console.log(k);
+            //     bodyFormData.append(k, data[k])
+            // })
+
+            // console.log(bodyFormData)
+
+            // axios({
+            //     method: 'post',
+            //     url: url + '/trip',
+            //     data: bodyFormData,
+            //     headers: {'Content-Type': 'multipart/form-data' }
+            // })
+            // .then(function (response) {
+            //     //handle success
+            //     console.log(response);
+            //     if (response.status === 201) {
+            //         window.location.href = '/'
+            //     }
+            // })
+            // .catch(function (response) {
+            //     //handle error
+            //     console.log(response);
+            // });
+     
+        })
+
+        // let bodyFormData = new FormData();
+        // const keys = Object.keys(data)
+        // keys.map((k) => {    
+        //     bodyFormData.append(k, data[k])
+        // })
+
+        // console.log(data)
+
+        // axios({
+        //     method: 'post',
+        //     url: url + '/trip',
+        //     data: bodyFormData,
+        //     headers: {'Content-Type': 'multipart/form-data' }
+        // })
+        // .then(function (response) {
+        //     //handle success
+        //     console.log(response);
+        //     if (response.status === 201) {
+        //         window.location.href = '/'
+        //     }
+        // })
+        // .catch(function (response) {
+        //     //handle error
+        //     console.log(response);
+        // });
+     
         
     }
 
@@ -130,11 +211,6 @@ const CreateTrip = ({ }) => {
                 const provinces = res.data.map((d)=> d.name)
                 setProvinceOption(provinces)
         })
-
-
-
-        
-      
 
 
         }, [])
@@ -168,7 +244,7 @@ const CreateTrip = ({ }) => {
                                                      Name Trip
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" type="text" placeholder="Normal text" value={data.nameTrip} onChange={(e) => createTrip(e,'nameTrip')} required  />
+                                                <Form.Control className="w-50" type="text" placeholder="Normal text" value={data.name} onChange={(e) => createTrip(e,'name')} required  />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -213,7 +289,7 @@ const CreateTrip = ({ }) => {
                                                     Main activities
                                                 </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" as="select" value={data.activity} onChange={(e) => createTrip(e,'activity')} required>
+                                                <Form.Control className="w-50" as="select" onChange={(e) => createTrip(e,'tag')} required>
                                                     {activities.map(act => {
                                                         return <option>{act.label} </option>
                                                     })}
@@ -237,7 +313,7 @@ const CreateTrip = ({ }) => {
                                                 Meet up Time
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meetUp} onChange={(e) => createTrip(e,'meetUp')} required />
+                                                <Form.Control className="w-50"  type="text" placeholder="BTS" value={data.meeting_point} onChange={(e) => createTrip(e,'meeting_point')} required />
                                             </Col>
                                         </Form.Row>
                                         <br />
@@ -277,7 +353,7 @@ const CreateTrip = ({ }) => {
                                         </div>
                                     </Form>
                                     <Button onClick={() => handlePreviousTab()}>Previous</Button>
-                                    <Button style={{ marginLeft: '80%' }}>Submit</Button>
+                                    <Button style={{ marginLeft: '80%' }} onClick={()=> postCreateTrip()} >Submit</Button>
 
                                 </Tab.Pane>
 
