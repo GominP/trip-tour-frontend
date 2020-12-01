@@ -13,11 +13,13 @@ import EditProfile from './Customer/editProfile.js'
 import NavBarHead from './NavBar/NavbarHead.js'
 import NavBarGuide from './NavBar/NavBarGuide.js'
 import NavBarAdmin from './NavBar/NavBarAdmin.js'
+import MultiStepForm from './Guide/MultiPage/MultiStepForm.js'
+import Detail from './Guide/MultiPage/Detail.js';
+import DetailTrip from './MainPage/DetailTrip.js';
 
 const App = () => {
   const [token] = useState(localStorage.getItem('token'))
 
-<<<<<<< HEAD
   const url = 'http://192.168.102.22:3030/api'
 
   const [role, setRole] = useState('C')
@@ -32,21 +34,12 @@ const App = () => {
       })
     }
   })
-=======
-import MultiStepForm from './Guide/MultiPage/MultiStepForm.js'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Profile from './Customer/Profile.js';
-import EditProfile from './Customer/EditProfile.js'
-import Detail from './Guide/MultiPage/Detail.js';
-import DetailTrip from './MainPage/DetailTrip.js';
->>>>>>> mix dev
 
   return (
     <div>
       {role === 'A' ? <NavBarAdmin/> : role === 'G' ? <NavBarGuide/> : <NavBarHead isLogin={isLogin}/>}
       
       <Router>
-<<<<<<< HEAD
       <Switch>
         <>
           <Route exact path='/' component={Home} />
@@ -56,28 +49,13 @@ import DetailTrip from './MainPage/DetailTrip.js';
           <Route exact path='/WorkSchedule' component={ WorkSchedule } />
           <Route exact path='/Profile' component={ Profile } />
           <Route exact path='/EditProfile' component={ EditProfile } />
+          <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
         </>
       </Switch>
     </Router>
     </div>
   );
   
-=======
-        <Switch>
-          <>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/MultiStepForm' component={MultiStepForm} />
-            <Route exact path='/SelectTrip' component={ SelectTrip } />
-            <Route exact path='/ChooseJob/:id' component={ ChooseJob } />
-            <Route exact path='/Profile' component={ Profile } />
-            <Route exact path='/EditProfile' component={ EditProfile } />
-            <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
-          </>
-        </Switch>
-      </Router>
-    );
-  }
->>>>>>> mix dev
 }
 
 export default App;

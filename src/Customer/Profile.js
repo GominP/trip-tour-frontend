@@ -18,11 +18,6 @@ function Profile() {
 
     return (
         <div>
-<<<<<<< HEAD
-                <Row>
-                    <Col sm={4} style={{}}>
-                        <Form style={{ marginTop: 80, marginLeft:25, marginRight:25}}>
-=======
             <NavbarHead></NavbarHead>
             <Row>
                 <Col sm={4} >
@@ -43,7 +38,6 @@ function Profile() {
                 <Col sm={8} style={{ marginTop: 80, height: "100vh", backgroundColor: "#ECECEC" }}>
                     <Form style={{ marginTop: 20, marginLeft: 50 }}>
                         <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
->>>>>>> mix dev
                             <Form.Row>
                                 <Nav variant="pills" className="flex-row">
                                     <Nav.Item>
