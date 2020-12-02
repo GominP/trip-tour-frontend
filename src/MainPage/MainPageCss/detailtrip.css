@@ -73,3 +73,25 @@
 .CardAfterBook{
     margin-left: -20px;
 }
+.horizontal-scroll-wrapper {
+    width: 376px;
+    height: 800px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: rotate(90deg);
+    transform-origin: right top;
+    transform: rotate(-90deg) translateY(-100px);
+    background-color: aqua;
+    scrollbar-width: none;  
+}
+
+.horizontal-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll-wrapper>.card {
+    transform: rotate(90deg);
+    width: 345px;
+    height: 345px;
+    margin: 10px;
+}

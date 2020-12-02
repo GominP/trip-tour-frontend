@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
-import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, useAccordionToggle } from 'react-bootstrap'
+import { Container, Col, Row, Carousel, Card, Form, Button, FormGroup, Modal, useAccordionToggle, Nav } from 'react-bootstrap'
 import slide1 from '../img/h1.jpg';
 import slide2 from '../img/h2.jpg';
 import slide3 from '../img/h3.jpg';
+import GuideIcon from '../img/GuideIcon.png';
 import ReactRoundedImage from "react-rounded-image";
 import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'
 import '../MainPage/MainPageCss/detailtrip.css'
@@ -27,6 +28,15 @@ function DetailTrip(){
         { img: slide3}
     
     ];
+
+    const [showGuide, setShowGuide] = useState(false);
+    const handleGuideShow = () => setShowGuide(true)
+    const handleGuideClose = () => {
+        setShowGuide(false);
+    }
+
+
+
 
   return (
     <div >
@@ -111,8 +121,8 @@ function DetailTrip(){
                     <Col sm={4}>
                         <Row>
                             <Form className="CardBeforeBook">
-                                <Card style={{ width: '30rem'}}>
-                                    <Card.Header style={{backgroundColor:"#FFFFFF"}}>Date to travel</Card.Header>
+                                <Card style={{ width: '28rem'}}>
+                                    <Card.Header style={{backgroundColor:"#FFFFFF", marginLeft:"30px"}}>Date to travel</Card.Header>
                                     <Card.Body>
                                         <Form.Row style={{marginLeft:"30px"}}>
                                             <h5>People</h5>
@@ -122,16 +132,21 @@ function DetailTrip(){
                                                 <Button variant="outline-primary" size="sm" className="BtnPeople">+</Button>
                                             </div>
                                         </Form.Row>
-                                        <div>Guide</div>
+                                        <Form.Row>
+                                            <Button onClick={handleGuideShow} size="sm">
+                                                <img src={GuideIcon} style={{backgroundColor:"#FFFFFF", borderRadius:"100%", width:"20px", marginRight:"10px"}}/>
+                                                Select Guide
+                                            </Button>
+                                        </Form.Row>
                                         <hr></hr>
-                                        <div style={{marginTop:"20px"}}>
+                                        <div style={{marginTop:"20px", marginLeft:"30px"}}>
                                             THB 999 * qty(people) = THB
                                         </div>
-                                        <div style={{marginTop:"15px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
+                                        <div style={{marginTop:"15px", marginLeft:"30px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
                                         <hr></hr>
-                                        <div style={{marginTop:"15px"}}>Total ...... THB</div>
-                                        <div style={{marginTop:"15px"}}>
-                                            <Button style={{backgroundColor:"#2EF429", border:"none"}}block>Instant Book</Button>
+                                        <div style={{marginTop:"15px", marginLeft:"30px"}}>Total ...... THB</div>
+                                        <div style={{marginTop:"15px" }} >
+                                            <Button style={{backgroundColor:"#80c904", border:"none"}} block>Instant Book</Button>
                                         </div>
                                     </Card.Body>
                                 </Card>
@@ -139,22 +154,22 @@ function DetailTrip(){
                         </Row>
                         <Row>
                             <Form className="CardAfterBook">
-                                <Card style={{ width: '30rem'}}>
-                                    <Card.Header style={{backgroundColor:"#FFFFFF"}}>Date to travel</Card.Header>
+                                <Card style={{ width: '28rem'}}>
+                                    <Card.Header style={{backgroundColor:"#FFFFFF",marginLeft:"30px"}}>Date to travel</Card.Header>
                                     <Card.Body>
-                                        <Form.Row style={{marginLeft:"30px"}}>
+                                        <Form.Row style={{marginLeft:"30px",marginLeft:"30px"}}>
                                             <FontAwesomeIcon icon={faMale} size="lg" style={{marginRight:"10px"}}/>
                                             <h5>People</h5>
                                             <div style={{marginLeft:"160px", fontSize:"15px"}}> 5 </div>
                                             <div style={{marginLeft:"30px", fontSize:"15px"}}> peoples</div>
                                         </Form.Row>
                                             <hr></hr>
-                                            <div style={{marginTop:"20px"}}>
+                                            <div style={{marginTop:"20px", marginLeft:"30px"}}>
                                                 THB 999 * qty(people) = THB
                                             </div>
-                                            <div style={{marginTop:"15px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
+                                            <div style={{marginTop:"15px", marginLeft:"30px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
                                             <hr></hr>
-                                            <div style={{marginTop:"15px"}}>Total ...... THB</div>
+                                            <div style={{marginTop:"15px",marginLeft:"30px"}}>Total ...... THB</div>
                                             <div style={{marginTop:"15px"}}>
                                                 <Button style={{backgroundColor:"#2EF429", border:"none"}}block>Instant Book</Button>
                                             </div>
@@ -167,6 +182,23 @@ function DetailTrip(){
                 </Row>
             </Container>
         </div>
+        <Modal show={showGuide} onHide={handleGuideClose}>
+            <h2 style={{textAlign:"center",marginTop:"20px"}}>Select Guide</h2>
+            <Modal.Body>
+                <div className="horizontal-scroll-wrapper">
+                    <div className="card">
+                        dfngkldkl;fgm
+                    </div>
+                    <div className="card">
+                        dsgadsgsg
+                    </div>
+                    <div className="card">
+                        dsgasdgsdg
+                    </div>
+                </div>
+            </Modal.Body>
+
+        </Modal>
         
 
     </div>
