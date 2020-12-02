@@ -6,7 +6,8 @@ import slide1 from '../img/h1.jpg';
 import slide2 from '../img/h2.jpg';
 import slide3 from '../img/h3.jpg';
 import GuideIcon from '../img/GuideIcon.png';
-
+import Guide from '../img/Guide.jpg';
+import ReactRoundedImage from "react-rounded-image";
 import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'
 import '../MainPage/MainPageCss/detailtrip.css'
 import location from '../img/location.png'
@@ -215,17 +216,87 @@ function DetailTrip({ role }) {
         <Modal.Body>
           <div id="container">
             <div id="modules">
-              <div class="module">b</div>
-              <div class="module">c</div>
-              <div class="module">d</div>
-              <div class="module">e</div>
-              <div class="module">f</div>
-              <div class="module">g</div>
-              <div class="module">h</div>
-              <div class="module">i</div>
-              <div class="module">j</div>
-              <div class="module">k</div>
-              <div class="module">l</div>
+              <div class="module">
+                
+                <div style={{marginTop:'200px', marginLeft:"-10px"}}>
+                  {/* <div><img src={Guide}></img></div> */}
+                  
+                  <div style={{marginTop:"-180px", marginLeft:"20px", paddingLeft:"60px"}}>                  
+                    <ReactRoundedImage  image={Guide} imageWidth="90" imageHeight="90" roundedColor="#000000" roundedSize="7"  />
+                  </div>
+                  <div>Mana DekD</div>
+                  <div style={{marginTop:"40px",marginLeft:"10px", paddingLeft:"10px", paddingRight:"10px"}}>
+                    <StarRating starDimension="20px"
+                        starSpacing="0px"
+                        rating={4.3}
+                        starRatedColor="#FABD02"
+                      ></StarRating>
+                      <Button size="sm" style={{marginLeft:"50px"}}>Select</Button>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="module">
+                
+              <div style={{marginTop:'200px', marginLeft:"-10px"}}>
+                  {/* <div><img src={Guide}></img></div> */}
+                  
+                  <div style={{marginTop:"-180px", marginLeft:"20px", paddingLeft:"60px"}}>                  
+                    <ReactRoundedImage  image={Guide} imageWidth="90" imageHeight="90" roundedColor="#000000" roundedSize="7"  />
+                  </div>
+                  <div>Mana DekD</div>
+                  <div style={{marginTop:"40px",marginLeft:"10px", paddingLeft:"10px", paddingRight:"10px"}}>
+                    <StarRating starDimension="20px"
+                        starSpacing="0px"
+                        rating={4.3}
+                        starRatedColor="#FABD02"
+                      ></StarRating>
+                      <Button size="sm" style={{marginLeft:"50px"}}>Select</Button>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="module">
+                
+              <div style={{marginTop:'200px', marginLeft:"-10px"}}>
+                  {/* <div><img src={Guide}></img></div> */}
+                  
+                  <div style={{marginTop:"-180px", marginLeft:"20px", paddingLeft:"60px"}}>                  
+                    <ReactRoundedImage  image={Guide} imageWidth="90" imageHeight="90" roundedColor="#000000" roundedSize="7"  />
+                  </div>
+                  <div>Mana DekD</div>
+                  <div style={{marginTop:"40px",marginLeft:"10px", paddingLeft:"10px", paddingRight:"10px"}}>
+                    <StarRating starDimension="20px"
+                        starSpacing="0px"
+                        rating={4.3}
+                        starRatedColor="#FABD02"
+                      ></StarRating>
+                      <Button size="sm" style={{marginLeft:"50px"}}>Select</Button>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="module">
+                
+              <div style={{marginTop:'200px', marginLeft:"-10px"}}>
+                  {/* <div><img src={Guide}></img></div> */}
+                  
+                  <div style={{marginTop:"-180px", marginLeft:"20px", paddingLeft:"60px"}}>                  
+                    <ReactRoundedImage  image={Guide} imageWidth="90" imageHeight="90" roundedColor="#000000" roundedSize="7"  />
+                  </div>
+                  <div>Mana DekD</div>
+                  <div style={{marginTop:"40px",marginLeft:"10px", paddingLeft:"10px", paddingRight:"10px"}}>
+                    <StarRating starDimension="20px"
+                        starSpacing="0px"
+                        rating={4.3}
+                        starRatedColor="#FABD02"
+                      ></StarRating>
+                      <Button size="sm" style={{marginLeft:"50px"}}>Select</Button>
+                  </div>
+                  
+                </div>
+              </div>
+             
             </div>
           </div>
 

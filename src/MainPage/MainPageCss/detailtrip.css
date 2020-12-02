@@ -76,19 +76,20 @@
 
 
 #container {
-    width:300px;
     height: 300px;
     overflow: hidden;
-    background-color: yellow;
 }
 #modules {
-    height:90px; /* 40px - more place for scrollbar, is hidden under parent box */
     padding:5px;
     white-space:nowrap;
     overflow-x: scroll;
     overflow-y: hide;
-	-webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling:touch;
+    display: flex;
 }
+#modules::-webkit-scrollbar {
+    display: none;
+ }
 .module {
     display:inline-block;
     width:250px;
@@ -96,6 +97,18 @@
     line-height:50px;
     text-align:center;
     background:#ddd;
+    /* background-image: url('../../img/Guide.jpg'); */
+    
+}
+.module2{
+    display:inline-block;
+    width:250px;
+    height:250px;
+    line-height:50px;
+    text-align:center;
+    background:#ddd;
+    /* background-image: url('../../img/Guide.jpg'); */
+    
 }
 .module + .module {
     margin-left:5px
