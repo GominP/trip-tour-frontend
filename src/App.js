@@ -14,6 +14,8 @@ import NavBarHead from './NavBar/NavbarHead.js'
 import NavBarGuide from './NavBar/NavBarGuide.js'
 import NavBarAdmin from './NavBar/NavBarAdmin.js'
 import DetailTrip from './MainPage/DetailTrip.js';
+import VerifyGuide from './Admin/VerifyGuide.js'
+import VerifyTrip from './Admin/VerifyTrip.js'
 
 const App = () => {
   const [token] = useState(localStorage.getItem('token'))
@@ -26,12 +28,12 @@ const App = () => {
   useEffect(() => {
     if(token) {
       axios.get(url + '/user/token/' + token).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setRole(res.data.role)
         setLogin(true)
       })
     }
-  })
+  }, [])
 
   return (
     <div>
@@ -48,6 +50,8 @@ const App = () => {
           <Route exact path='/Profile' component={ Profile } />
           <Route exact path='/EditProfile' component={ EditProfile } />
           <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
+          <Route exact path='/VerifyGuide' component={ VerifyGuide } />
+          <Route exact path='/VerifyTrip' component={ VerifyTrip } />
         </>
       </Switch>
     </Router>
