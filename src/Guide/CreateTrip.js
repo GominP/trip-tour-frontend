@@ -284,10 +284,10 @@ const CreateTrip = () => {
                                         <br />
                                         <Form.Row>
                                             <Form.Label column lg={4}>
-                                                Meet up Time
+                                                Meeting Point
                                             </Form.Label>
                                             <Col>
-                                                <Form.Control className="w-50" type="text" placeholder="BTS" value={data.meeting_point} onChange={(e) => createTrip(e, 'meeting_point')} required />
+                                                <Form.Control className="w-50"  type="text" placeholder="Enter Meeting point" value={data.meeting_point} onChange={(e) => createTrip(e,'meeting_point')} required />
                                             </Col>
                                         </Form.Row>
                                         <br />

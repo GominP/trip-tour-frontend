@@ -1,3 +1,8 @@
+.EditProfileBtn{
+  margin-top: 30px;
+  color: #fc8a17;
+}
+
 .ImageCard{
   display: flex;
   background-color:white;
@@ -9,9 +14,8 @@
 }
 
 .ImageCard:hover{
-  box-shadow: 5px 5px #0197f6;
+  box-shadow: 5px 5px ;
 }
-
 
 .Image {
   background-image: url("../../img/h1.jpg");
