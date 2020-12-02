@@ -38,32 +38,80 @@ function ChooseJob() {
 
 
   //date
-  const disabledDates = [new Date(2020,10,29),new Date(2020,10,27),new Date(2020,10,24)]
-  const [date,setDate] = useState(new Date())
+  const [disabledDates, setDisabledDates] = useState([])
+  const [date,setDate] = useState()
 
-  const selectDate = () => {
-    console.log(date)
+  // const selectDate = (date) => {
+  //   setDate(date)
 
-  }
+
+  // }
 
   //trip
   const [trip,setTrip] = useState([])
   const [province,setProvince] = useState('')
+  const [postData, setPostData] = useState({
+    date: '',
+    trip_id: params.id,
+    guide_id: ''
+
+  })
+
+
+
+  const postJob = () => {
+    const newData = {
+      ...postData,
+      date: date
+    }
+    //  setPostData({...postData, date: date});
+     console.log(newData)
+
+    axios.post(url + '/job', newData, { headers: { Authorization: localStorage.getItem('token') } })
+    .then(res => {
+        console.log(res);
+        window.location.href= "/ChooseJob/" + params.id
+    })
+
+  }
+
+  const show = () => {
+    console.log('====================================');
+    console.log(disabledDates);
+    console.log('====================================');
+  }
 
 
   
   useEffect(async() => {
 
-    //Get All Trip
+    //Get  Trip
       const res = await axios.get(url + '/trip/'+ params.id, { headers: {Authorization: localStorage.getItem('token')}} )
       console.log(res.data);
       const trip = res.data
       setTrip(trip)
-      
 
+    //get Province Name
       const resProvince = await axios.get(url + '/province/'+ trip.province_id, { headers: {Authorization: localStorage.getItem('token')}} )
       console.log(resProvince.data);
       setProvince(resProvince.data)
+
+
+      const { data: { _id : guideId } } = await axios.get(url + '/user/token/' + localStorage.getItem('token'))
+        setPostData({...postData, guide_id: guideId});
+        console.log(guideId)
+
+
+    const arr = []
+      const resJob = await axios.get(url + '/job/guide/'+ guideId, { headers: {Authorization: localStorage.getItem('token')}} )
+      resJob.data.map((j) => {
+        arr.push(new Date(j.date))
+      })
+      setDisabledDates(arr)
+      // console.log('====================================');
+      // console.log(arr);
+      // console.log('====================================');
+      
         
     }, [])
 
@@ -133,7 +181,7 @@ function ChooseJob() {
                 <Row>
                 <Calendar
                   value={date}
-                  onChange={selectDate}
+                  onChange={setDate}
                   tileDisabled={({ date }) => {
                     for (const disabledDate of disabledDates) {
                       if (
@@ -149,7 +197,7 @@ function ChooseJob() {
 
                 </Row>
                 <Row className="justify-content-center" style={{ marginTop: 40}}>
-                  <Button > Save Change</Button>
+                  <Button onClick={() => postJob()} > Save Change</Button>
 
                 </Row>
 
