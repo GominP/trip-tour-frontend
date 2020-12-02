@@ -4,9 +4,7 @@ import { Container, Row, Col, Table, Form, Button, Image } from 'react-bootstrap
 
 const VerifyTrip = () => {
 
-   useEffect(() => {
-      axios.get
-   },[])
+   
 
    return (
       <>
