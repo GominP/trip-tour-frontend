@@ -51,7 +51,6 @@ function SelectTrip() {
                                             <Card.Body>
                                                 <Card.Title>{a.name}</Card.Title>
                                                 <Card.Text>
-                                                    {a.detail}
                                                 </Card.Text>
                                             </Card.Body>
                                             <Card.Footer>
@@ -63,7 +62,7 @@ function SelectTrip() {
                             }
                         </CardColumns>
 
-                    <Button onClick={() => test()}> Show data</Button>
+                    {/* <Button onClick={() => test()}> Show data</Button> */}
                     </CardGroup>
                 </Row>
             </Container>

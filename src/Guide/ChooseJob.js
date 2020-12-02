@@ -6,33 +6,58 @@ import React, { useEffect, useState } from "react";
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import { useParams } from 'react-router-dom';
-
+import axios from "axios";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUser } from "@fortawesome/free-solid-svg-icons";
 import slide1 from '../img/h1.jpg';
 import slide2 from '../img/h2.jpg';
 import slide3 from '../img/h3.jpg';
 
 
 
-import { Container, Col, Row, Carousel, Card, Form, Button } from 'react-bootstrap';
+import { Container, Col, Row, Carousel, Card, Button } from 'react-bootstrap';
 
 
 function ChooseJob() {
   const params = useParams();
+  const url = "http://192.168.102.22:3030/api"
 
+
+
+//Carousel
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
   const cardImg = [
     { img: slide1},
     { img: slide2},
     { img: slide3}
 
-];
+  ];
+
+
 
   const disabledDates = [new Date(2020,10,29),new Date(2020,10,27),new Date(2020,10,24)]
+  const [trip,setTrip] = useState([])
+  const [province,setProvince] = useState('')
+
+
+  
+  useEffect(async() => {
+
+    //Get All Trip
+      const res = await axios.get(url + '/trip/'+ params.id, { headers: {Authorization: localStorage.getItem('token')}} )
+      console.log(res.data);
+      const trip = res.data
+      setTrip(trip)
+      
+
+      const resProvince = await axios.get(url + '/province/'+ trip.province_id, { headers: {Authorization: localStorage.getItem('token')}} )
+      console.log(resProvince.data);
+      setProvince(resProvince.data)
+        
+    }, [])
 
 
 
@@ -58,32 +83,32 @@ function ChooseJob() {
                     }                
                 </Carousel>
                 <Card.Body>
+               
 
                   <Card.Text>
                   <dl class="row">
                     <dt class="col-sm-3">Name Trip</dt>
-                    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+                    <dd class="col-sm-9">{trip.name}</dd>
 
                     <dt class="col-sm-3">Detail</dt>
                     <dd class="col-sm-9">
-                      <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-                      <p>Donec id elit non mi porta gravida at eget metus.</p>
+                      <p>{trip.detail}</p>
                     </dd>
 
                     <dt class="col-sm-3">Province</dt>
-                    <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+                  <dd class="col-sm-9">{province.name}</dd>
 
                     <dt class="col-sm-3 text-truncate">Main activities</dt>
-                    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                  <dd class="col-sm-9">{trip.tag}</dd>
 
                     <dt class="col-sm-3">Price</dt>
                     <dd class="col-sm-9">
                       <dl class="row">
-                        <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+                      <dd class="col-sm-8">{trip.price} / person </dd>
                       </dl>
                     </dd>
                     <dt class="col-sm-3 text-truncate">Maximum travelers</dt>
-                    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                    <dd class="col-sm-9">{trip.person}</dd>
 
                   </dl>
                   </Card.Text>
@@ -103,7 +128,6 @@ function ChooseJob() {
             <Col sm={4}>
                 <Row>
                 <Calendar
-                  selectRange={true}
                   tileDisabled={({ date }) => {
                     for (const disabledDate of disabledDates) {
                       if (
