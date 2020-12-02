@@ -2,18 +2,18 @@ import slide1 from './img/h1.jpg';
 import slide2 from './img/h2.jpg';
 import slide3 from './img/h3.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  NavBarHead from './NavBar/NavbarHead.js'
 import React, { useEffect, useState } from "react";
 import {Container,Col,Row,Carousel,Card} from 'react-bootstrap'
 
-
+import ACard from './Card/ACard'
+import './Card/ACard.css'
 
 function Home() {
 
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
+        setIndex(selectedIndex);
     };
 
   return (
@@ -46,7 +46,42 @@ function Home() {
             </Carousel>
         </div>
         <div>
-            <Container >
+            <div className="horizontal-scroll-wrapper">
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+                <div className="card">
+                    <ACard />
+                </div>
+            </div>
+            
+        </div>
+        <div>
+            {/* <Container >
                 <Row>
                     <Col>
                         <Card>
@@ -95,10 +130,8 @@ function Home() {
                 
                     </Col>
                 </Row>
-            </Container>
+            </Container> */}
         </div>
-        
-
     </div>
   );
 }
