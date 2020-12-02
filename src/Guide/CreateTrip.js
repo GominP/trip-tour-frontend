@@ -126,7 +126,9 @@ const CreateTrip = () => {
 
         axios({
             method: 'get',
-            url: url + '/province/name/' + data.province
+            url: url + '/province/name/' + data.province,
+            headers: {Authorization: localStorage.getItem('token')}
+       
         }).then((res) => {
             const provinceId = res.data[0]._id
             setData({
@@ -137,7 +139,7 @@ const CreateTrip = () => {
             })
             console.log(data);
 
-            axios.post(url + '/trip', data)
+            axios.post(url + '/trip', data ,{ headers: {Authorization: localStorage.getItem('token')}})
             .then( res => {
                 console.log(res);
                 // window.location.href= "/"
