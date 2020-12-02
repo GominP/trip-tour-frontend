@@ -37,8 +37,16 @@ function ChooseJob() {
   ];
 
 
-
+  //date
   const disabledDates = [new Date(2020,10,29),new Date(2020,10,27),new Date(2020,10,24)]
+  const [date,setDate] = useState(new Date())
+
+  const selectDate = () => {
+    console.log(date)
+
+  }
+
+  //trip
   const [trip,setTrip] = useState([])
   const [province,setProvince] = useState('')
 
@@ -118,16 +126,14 @@ function ChooseJob() {
                   
                                 
               </Row>
-              <Row style={{ marginTop: 50 }}>
-              
-                  Photo Gallery
-                    
-              </Row>
+
             </Col>
 
             <Col sm={4}>
                 <Row>
                 <Calendar
+                  value={date}
+                  onChange={selectDate}
                   tileDisabled={({ date }) => {
                     for (const disabledDate of disabledDates) {
                       if (
