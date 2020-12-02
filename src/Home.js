@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import {Container,Col,Row,Carousel,Card} from 'react-bootstrap'
 
-import ACard from './Card/ACard'
+import ACard from './Card/ACard.js'
 import './Card/ACard.css'
 
 function Home() {

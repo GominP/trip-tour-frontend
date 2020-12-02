@@ -73,25 +73,43 @@
 .CardAfterBook{
     margin-left: -20px;
 }
-.horizontal-scroll-wrapper {
-    width: 376px;
-    height: 800px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transform: rotate(90deg);
-    transform-origin: right top;
-    transform: rotate(-90deg) translateY(-100px);
-    background-color: aqua;
-    scrollbar-width: none;  
-}
 
-.horizontal-scroll-wrapper::-webkit-scrollbar {
+
+#container {
+    height: 300px;
+    overflow: hidden;
+}
+#modules {
+    padding:5px;
+    white-space:nowrap;
+    overflow-x: scroll;
+    overflow-y: hide;
+    -webkit-overflow-scrolling:touch;
+    display: flex;
+}
+#modules::-webkit-scrollbar {
     display: none;
+ }
+.module {
+    display:inline-block;
+    width:250px;
+    height:250px;
+    line-height:50px;
+    text-align:center;
+    background:#ddd;
+    /* background-image: url('../../img/Guide.jpg'); */
+    
 }
-
-.horizontal-scroll-wrapper>.card {
-    transform: rotate(90deg);
-    width: 345px;
-    height: 345px;
-    margin: 10px;
+.module2{
+    display:inline-block;
+    width:250px;
+    height:250px;
+    line-height:50px;
+    text-align:center;
+    background:#ddd;
+    /* background-image: url('../../img/Guide.jpg'); */
+    
+}
+.module + .module {
+    margin-left:5px
 }
