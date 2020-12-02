@@ -10,8 +10,9 @@ import { Tab, Tabs, TabContainer, TabPane } from 'react-bootstrap'
 import '../MainPage/MainPageCss/detailtrip.css'
 import  NavBarHead from '../NavBar/NavbarHead.js'
 import location from '../img/location.png'
-import staricon from '../img/star-icon.png'
 import StarRating from 'react-star-ratings';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faHiking, faInfoCircle, faHamburger, faMale, faSignature, faClock } from "@fortawesome/free-solid-svg-icons";
 
 function DetailTrip(){
     const [index, setIndex] = useState(0);
@@ -54,28 +55,112 @@ function DetailTrip(){
                                     <div>
                                         <h3>Street Food Tour in Bangkok Chinatown</h3>
                                     </div>
-                                    <Form.Row>
-                                        
+                                    <Form.Row >
                                         <img src={location} className="LocationImage"></img>
                                         <Form.Label column="sm">Bangkok</Form.Label>
                                     </Form.Row>
-                                    <Form.Row style={{ marginLeft: "1.5%"}}>
+                                    <Form.Row style={{ marginLeft: "1.5%",marginTop:"2%"}}>
                                         <StarRating starDimension="15px"
                                         starSpacing ="0px"
                                         rating={4.3}
                                         starRatedColor="#FABD02"
                                         ></StarRating>
-                                        <Form.Label column="sm"></Form.Label>
+                                        <Form.Label column="sm" className="RatingScore">4.3/5</Form.Label>
+                                        <Col>
+                                            <Button size="sm" className="ButtonReview" style={{backgroundColor:"green"}}>Review</Button>
+                                        </Col>
+                                    </Form.Row>
+                                    <Form.Row>
+                                        <Form as={Col}>
+                                            <div className="FontAweBack">
+                                                <div >
+                                                    <FontAwesomeIcon icon={faHamburger} size="4x"  className="Icon"></FontAwesomeIcon>
+                                                    <div>
+                                                        <b style={{marginLeft:"10px"}}>Food&Drink</b>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </Form>
+                                        <Form as={Col}>
+                                            {/* <FontAwesomeIcon icon={faHiking}  className="HkIcon" style={{ marginRight: 10 }}></FontAwesomeIcon> */}
+                                            <div className="FontAweBack2">
+                                                <div>
+                                                    <FontAwesomeIcon icon={faClock} size="4x" className="Icon"></FontAwesomeIcon>
+                                                    <div style={{marginLeft:"22px"}}>
+                                                        <b >Duration</b>
+                                                        <p style={{marginTop:"-5px", marginLeft:"10px", fontSize:"10px"}}>4 Hours</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </Form>
+                                    </Form.Row>
+                                    <Form.Row style={{ marginLeft: "1.5%",marginTop:"2%"}}>
+                                        <div>
+                                            <h3>Description....</h3>
+                                            <p>nfdsogknvdfokvfdn</p>
+                                        </div>
                                     </Form.Row>
 
                                 </Card.Body>
                             </Card>                
                         </Row>
                     </Col>
-
+                    {/* Add if (isCustomer && Home(Customer)) */}
                     <Col sm={4}>
                         <Row>
-                    
+                            <Form className="CardBeforeBook">
+                                <Card style={{ width: '30rem'}}>
+                                    <Card.Header style={{backgroundColor:"#FFFFFF"}}>Date to travel</Card.Header>
+                                    <Card.Body>
+                                        <Form.Row style={{marginLeft:"30px"}}>
+                                            <h5>People</h5>
+                                            <div className="GroupBtnPeople">
+                                                <Button variant="outline-primary" size="sm" className="BtnPeople">-</Button>
+                                                <Form.Label>  qty</Form.Label>
+                                                <Button variant="outline-primary" size="sm" className="BtnPeople">+</Button>
+                                            </div>
+                                        </Form.Row>
+                                        <div>Guide</div>
+                                        <hr></hr>
+                                        <div style={{marginTop:"20px"}}>
+                                            THB 999 * qty(people) = THB
+                                        </div>
+                                        <div style={{marginTop:"15px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
+                                        <hr></hr>
+                                        <div style={{marginTop:"15px"}}>Total ...... THB</div>
+                                        <div style={{marginTop:"15px"}}>
+                                            <Button style={{backgroundColor:"#2EF429", border:"none"}}block>Instant Book</Button>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </Form>
+                        </Row>
+                        <Row>
+                            <Form className="CardAfterBook">
+                                <Card style={{ width: '30rem'}}>
+                                    <Card.Header style={{backgroundColor:"#FFFFFF"}}>Date to travel</Card.Header>
+                                    <Card.Body>
+                                        <Form.Row style={{marginLeft:"30px"}}>
+                                            <FontAwesomeIcon icon={faMale} size="lg" style={{marginRight:"10px"}}/>
+                                            <h5>People</h5>
+                                            <div style={{marginLeft:"160px", fontSize:"15px"}}> 5 </div>
+                                            <div style={{marginLeft:"30px", fontSize:"15px"}}> peoples</div>
+                                        </Form.Row>
+                                            <hr></hr>
+                                            <div style={{marginTop:"20px"}}>
+                                                THB 999 * qty(people) = THB
+                                            </div>
+                                            <div style={{marginTop:"15px"}}>รวม + ค่าธรรมเนียม + ภาษี = THB</div>
+                                            <hr></hr>
+                                            <div style={{marginTop:"15px"}}>Total ...... THB</div>
+                                            <div style={{marginTop:"15px"}}>
+                                                <Button style={{backgroundColor:"#2EF429", border:"none"}}block>Instant Book</Button>
+                                            </div>
+                                    </Card.Body>
+                                </Card>
+                            </Form>
                         </Row>
                     </Col>
 

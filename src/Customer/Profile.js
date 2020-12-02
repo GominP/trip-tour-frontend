@@ -55,21 +55,21 @@ function Profile() {
                             </Form>
                         </Form.Row>
                         <Form.Group>
-                            <a href="/EditProfile" class="btn btn-primary btn-lg btn-block" role="button" aria-disabled="true" style={{ marginTop: 30 }}>Edit Profile</a>
+                            <a href="/EditProfile" class="btn btn-default btn-lg btn-block "  role="button" aria-disabled="true" style={{marginTop:"30px", backgroundColor:"#FC8A17", color:"#FFFFFF"}}>Edit Profile</a>
                         </Form.Group>
                     </Form>
                 </Col>
 
-                <Col sm={8} style={{ marginTop: 80, height: "100vh", backgroundColor: "#ECECEC" }}>
+                <Col sm={8} style={{ marginTop: 58, height: "100vh", backgroundColor: "#ECECEC" }}>
                     <Form style={{ marginTop: 20, marginLeft: 50 }}>
                         <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                             <Form.Row>
                                 <Nav variant="pills" className="flex-row">
-                                    <Nav.Item>
-                                        <b><Nav.Link eventKey="first" style={{ fontSize: "18px" }}>Booking</Nav.Link></b>
+                                    <Nav.Item >
+                                        <b><Nav.Link eventKey="first"  style={{ fontSize: "18px" }}>Booking</Nav.Link></b>
                                     </Nav.Item>
-                                    <Nav.Item>
-                                        <b><Nav.Link eventKey="second" style={{ fontSize: "18px" }}>Post-Trip</Nav.Link></b>
+                                    <Nav.Item >
+                                        <b><Nav.Link eventKey="second" style={{ fontSize: "18px"}}>Post-Trip</Nav.Link></b>
                                     </Nav.Item>
                                 </Nav>
                             </Form.Row>

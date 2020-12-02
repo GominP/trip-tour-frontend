@@ -1,5 +1,5 @@
 .SlideShow{
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .Topic{
     margin-top: 20px;
@@ -20,4 +20,56 @@
 }
 .StarRating{
     margin-left: 10px;
+    margin-top: 20px;
+}
+.TimeIcon{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px;
+}
+.RatingScore{
+    font-size: 13.5px;
+}
+.ButtonReview{
+    margin-left: -200px;
+}
+.FontAweBack{
+    display: flex;
+    background-color:#fc8a17;
+    width: 120px;
+    height: 120px;
+    padding:10px;
+    margin: 20px;
+    border-radius: 15px;
+}
+.FontAweBack2{
+    /* display: flex; */
+    background-color: #fc8a17;
+    width: 120px;
+    height: 120px;
+    padding:10px;
+    margin-left: -70px;
+    margin-top: 21px;
+    border-radius: 15px;
+}
+.Icon{
+    margin-Top: 19px;
+    margin-Left: 23px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.BtnPeople{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.GroupBtnPeople{
+    margin-left: 120px;
+}
+.CardBeforeBook{
+    margin-left: -20px;
+}
+.CardAfterBook{
+    margin-left: -20px;
 }
