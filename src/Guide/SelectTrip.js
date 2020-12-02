@@ -26,7 +26,7 @@ function SelectTrip() {
     useEffect(() => {
 
         //Get All Trip
-        //     axios.get(url + '/province').then(res => {
+        //     axios.get(url + '/trip').then(res => {
         //         console.log(res.data);
         //         const trips = res.data.map((d)=> d.name)
         //         setBookings(trips)
