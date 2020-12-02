@@ -73,25 +73,30 @@
 .CardAfterBook{
     margin-left: -20px;
 }
-.horizontal-scroll-wrapper {
-    width: 376px;
-    height: 800px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transform: rotate(90deg);
-    transform-origin: right top;
-    transform: rotate(-90deg) translateY(-100px);
-    background-color: aqua;
-    scrollbar-width: none;  
-}
 
-.horizontal-scroll-wrapper::-webkit-scrollbar {
-    display: none;
-}
 
-.horizontal-scroll-wrapper>.card {
-    transform: rotate(90deg);
-    width: 345px;
-    height: 345px;
-    margin: 10px;
+#container {
+    width:300px;
+    height: 300px;
+    overflow: hidden;
+    background-color: yellow;
+}
+#modules {
+    height:90px; /* 40px - more place for scrollbar, is hidden under parent box */
+    padding:5px;
+    white-space:nowrap;
+    overflow-x: scroll;
+    overflow-y: hide;
+	-webkit-overflow-scrolling:touch;
+}
+.module {
+    display:inline-block;
+    width:250px;
+    height:250px;
+    line-height:50px;
+    text-align:center;
+    background:#ddd;
+}
+.module + .module {
+    margin-left:5px
 }

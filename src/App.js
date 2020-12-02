@@ -14,6 +14,7 @@ import NavBarHead from './NavBar/NavbarHead.js'
 import NavBarGuide from './NavBar/NavBarGuide.js'
 import NavBarAdmin from './NavBar/NavBarAdmin.js'
 import DetailTrip from './MainPage/DetailTrip.js';
+import PaymentPage from './Payment/PaymentPage.js';
 
 const App = () => {
   const [token] = useState(localStorage.getItem('token'))
@@ -47,7 +48,8 @@ const App = () => {
           <Route exact path='/WorkSchedule' component={ WorkSchedule } />
           <Route exact path='/Profile' component={ Profile } />
           <Route exact path='/EditProfile' component={ EditProfile } />
-          <Route exact path='/MainPage/DetailTrip' component={ DetailTrip } />
+          <Route exact path='/MainPage/DetailTrip' component={ () => <DetailTrip role={role} /> } />
+          <Route exact path='/Payment/PaymentPage' component={ PaymentPage }/>
         </>
       </Switch>
     </Router>
